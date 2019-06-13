@@ -160,13 +160,14 @@ export const deepCopy = oldObj => {
 };
 
 /**
- * @description 去抖动：（decorator）可装饰类内箭头函数
- * @param {object} params - 防抖配置
+ * @description 防抖动：（decorator）可装饰类内箭头函数
+ * @param {object} params - 配置
  * @param {number} params.delay - 时间阀值（单位：ms），默认：delay=300
  * @param {bool} params.immediate - 初始是否立刻执行，默认：immediate=false
  * @returns {function} - 返回装饰器方法
  */
 export const debounce_next = (params = {}) => {
+  // reference：http://es6.ruanyifeng.com/#docs/decorator#%E6%96%B9%E6%B3%95%E7%9A%84%E4%BF%AE%E9%A5%B0
   return function(target, name, descriptor) {
     let timer = null;
     const { delay = 300, immediate = false } = params;
@@ -362,7 +363,7 @@ export const UTCTimestamp = dateStr => {
 };
 
 /**
- * @description 根据utc时间获取目标时区的时间
+ * @description utc时间转目标时区的时间
  * @param {object|string} date - utc时间，日期对象/字符串
  * @param {number} timezone - 目标时区，默认：timezone=480（中国时区+0800）
  * @param {*} mask - 日期格式,默认：mask='yyyy-MM-dd HH:mm:ss'
@@ -375,7 +376,7 @@ export const UTC2Target = (date, timezone = 480, mask = 'yyyy-MM-dd HH:mm:ss') =
 };
 
 /**
- * @description 根据目标时区的时间获取utc时间
+ * @description 目标时区的时间转utc时间
  * @param {object|string} date - 目标时区时间，日期对象/字符串
  * @param {number} timezone - 目标时区，默认：timezone=480（中国时区+0800）
  * @param {*} mask - 日期格式,默认：mask='yyyy-MM-dd HH:mm:ss'
@@ -386,3 +387,16 @@ export const Target2UTC = (date, timezone = 480, mask = 'yyyy-MM-dd HH:mm:ss') =
   date = dateFormat(targetTimestamp - timezone * 60 * 1000, mask);
   return date;
 };
+
+/**
+ * @description 扩展Error
+ */
+export class MyError extends Error {
+  constructor(props) {
+    super(props);
+    this.code = props.code || 0;
+    this.msg = props.msg || 'default msg';
+    this.name = 'MyError';
+    this.message = JSON.stringify(props);
+  }
+}
