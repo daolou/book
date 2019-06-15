@@ -1,28 +1,23 @@
 /**
  * fetch 封装，timeout，cancel;
     ========================
-    var p = _fetch('https://www.baidu.com',{mode:'no-cors'});
-    p.then(function(res) {
-        console.log('response:', res);
-    }).catch(function(e) {
-        console.log('error:', e);
-    });
-    p.abort(); // 主动终止请求
-    ========================
     async () => {
         try {
-            const p = $get(
-                'https://www.baidu.com',
-                {},
-                {
-                    mode: 'no-cors',
-                    // timeout: 1,
-                },
-            );
-            console.log(p);
-            // p.abort();
-            const res = await p;
-            console.log('res:', res);
+            const res = await $get(
+            'https://api.apiopen.top/getJoke',
+            {
+              page: 1,
+              count: 2,
+              type: 'video',
+            },
+            {
+              credentials: 'omit',
+              headers: {
+                'Content-Type': 'text/plain',
+              },
+            },
+          );
+          console.log('res:', res);
         } catch (e) {
             console.log('err:', e);
         }
@@ -44,24 +39,22 @@ const defaultConfig = {
   },
 };
 // 校验status状态码
-const checkStatus = (response, Abort) => {
+const checkStatus = (reject, response) => {
   const response2json = response.json();
-  // 将终止函数作为结果返回，达到可取手动取消请求的目的
-  Object.assign(response2json, { _Cancel: Abort });
   if (response.status >= 200 && response.status < 300) {
     console.log('response2json: ', response2json);
-    Promise.resolve(response2json);
+    return response2json;
   } else {
-    Promise.reject(response2json);
+    reject(response2json);
   }
 };
 export const _fetch = (fetch => (url, { timeout = defaultTimeout, ...rest }) => {
   // 定义终止函数
   let Abort = null;
   // 可被终止（reject）的promise
-  const abort_promise = new Promise(() => {
+  const abort_promise = new Promise((resolve, reject) => {
     Abort = (msg = 'canceled.') => {
-      Promise.reject(msg);
+      reject(msg);
     };
   });
   // 调用超时
@@ -71,16 +64,20 @@ export const _fetch = (fetch => (url, { timeout = defaultTimeout, ...rest }) => 
     }, timeout);
   }
   // 业务API的promise
-  const fetch_promise = new Promise(() => {
+  const fetch_promise = new Promise((resolve, reject) => {
     if (!url.startsWith('http')) {
       url = `${defaultURL}${url}`;
     }
     fetch(url, rest)
-      .then(response => checkStatus(response, Abort))
+      .then(response => checkStatus(reject, response))
+      .then(data => {
+        // 将终止函数作为结果返回，达到可取手动取消请求的目的
+        resolve([data, Abort]);
+      })
       .catch(error => {
         console.log('request fail url:', url);
         console.log('request fail reason:', error);
-        Promise.reject(error);
+        reject(error);
       });
   });
   // race：返回最快的结果（resolve/reject）
