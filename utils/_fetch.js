@@ -86,7 +86,7 @@ export const _fetch = (fetch => (url, { timeout = defaultTimeout, ...rest }) => 
   return promise;
 })(fetch);
 
-export const generateConfig = async (method, params, config) => {
+export const generateConfig = (method, params, config) => {
   const finalConfig = { ...defaultConfig };
   if (method === 'GET') {
     Object.assign(finalConfig, { method }, config);
@@ -120,25 +120,25 @@ export const generateConfig = async (method, params, config) => {
   return finalConfig;
 };
 
-export const $get = async (url, params = {}, config = {}) => {
+export const $get = (url, params = {}, config = {}) => {
   url = `${url}?${qsStringify(params)}`;
-  const finalConfig = await generateConfig('GET', params, config);
+  const finalConfig = generateConfig('GET', params, config);
   return _fetch(url, finalConfig);
 };
 
-export const $post = async (url, params = {}, config = {}) => {
-  const finalConfig = await generateConfig('POST', params, config);
+export const $post = (url, params = {}, config = {}) => {
+  const finalConfig = generateConfig('POST', params, config);
   return _fetch(url, finalConfig);
 };
-export const $put = async (url, params = {}, config = {}) => {
-  const finalConfig = await generateConfig('PUT', params, config);
+export const $put = (url, params = {}, config = {}) => {
+  const finalConfig = generateConfig('PUT', params, config);
   return _fetch(url, finalConfig);
 };
-export const $delete = async (url, params = {}, config = {}) => {
-  const finalConfig = await generateConfig('DELETE', params, config);
+export const $delete = (url, params = {}, config = {}) => {
+  const finalConfig = generateConfig('DELETE', params, config);
   return _fetch(url, finalConfig);
 };
-export const $upload = async (url, fileArr = [], config = {}) => {
-  const finalConfig = await generateConfig('UPLOAD', fileArr, config);
+export const $upload = (url, fileArr = [], config = {}) => {
+  const finalConfig = generateConfig('UPLOAD', fileArr, config);
   return _fetch(url, finalConfig);
 };
