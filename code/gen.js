@@ -51,7 +51,7 @@ const run1 = gen => {
   //   "b": 2
   // }
 };
-
+run1(gen);
 const run2 = gen => {
   const g = gen();
   function next(data) {
@@ -70,8 +70,6 @@ const run2 = gen => {
   //   "b": 2
   // }
 };
-
-// run1(gen);
 run2(function*() {
   const res1 = yield readFile(path.resolve(__dirname, '../data/a.json'), { encoding: 'utf8' });
   console.log(res1);

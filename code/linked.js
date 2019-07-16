@@ -159,4 +159,36 @@ class LinkedList {
   }
 }
 
-export default LinkedList;
+// test
+const obj = new LinkedList();
+obj.append(0);
+obj.append(1);
+obj.append(2);
+obj.printf();
+// "0->1->2"
+
+obj.insert(3, 3);
+obj.printf();
+// "0->1->2->3"
+
+obj.remove(3);
+obj.printf();
+// "0->1->2"
+
+obj.removeAt(0);
+obj.printf();
+// "1->2"
+
+obj.setIndex(0, 0);
+obj.printf();
+// "0->2"
+
+obj.indexOf(2);
+// 1
+
+obj.length();
+// 2
+
+obj.clear();
+obj.printf();
+// null
