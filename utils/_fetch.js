@@ -1,27 +1,28 @@
 /**
  * fetch 封装，timeout，cancel;
     ========================
-    async () => {
-        try {
-            const res = await $get(
-            'https://api.apiopen.top/getJoke',
-            {
-              page: 1,
-              count: 2,
-              type: 'video',
-            },
-            {
-              credentials: 'omit',
-              headers: {
-                'Content-Type': 'text/plain',
-              },
-            },
-          );
-          console.log('res:', res);
-        } catch (e) {
-            console.log('err:', e);
+    const p = $get(
+      "https://api.apiopen.top/getJoke",
+      {
+        page: 1,
+        count: 2,
+        type: "video"
+      },
+      {
+        credentials: "omit",
+        headers: {
+          "Content-Type": "text/plain"
         }
-    }
+      }
+    );
+    console.log(p);
+    p.then(res => {
+      console.log("res:::", res);
+    }).catch(err => {
+      console.log("err:::", err);
+    });
+    // 手动取消请求
+    p.cancel();
  */
 import { qsStringify } from './index';
 
@@ -49,6 +50,7 @@ const checkStatus = (reject, response) => {
   }
 };
 export const _fetch = (fetch => (url, { timeout = defaultTimeout, ...rest }) => {
+  console.log(url, { timeout, ...rest });
   // 定义终止函数
   let Abort = null;
   // 可被终止（reject）的promise
@@ -71,8 +73,7 @@ export const _fetch = (fetch => (url, { timeout = defaultTimeout, ...rest }) => 
     fetch(url, rest)
       .then(response => checkStatus(reject, response))
       .then(data => {
-        // 将终止函数作为结果返回，达到可取手动取消请求的目的
-        resolve([data, Abort]);
+        resolve(data);
       })
       .catch(error => {
         console.log('request fail url:', url);
@@ -83,6 +84,8 @@ export const _fetch = (fetch => (url, { timeout = defaultTimeout, ...rest }) => 
   // race：返回最快的结果（resolve/reject）
   const promise = Promise.race([fetch_promise, abort_promise]);
   // console.log(promise)
+  // 将终止函数作为结果返回，达到可取手动取消请求的目的
+  promise.cancel = Abort;
   return promise;
 })(fetch);
 
