@@ -1,74 +1,118 @@
 /**
- * @description （多屏幕+手机系统字体）适配方案
+ * @description （多屏幕+手机系统字体+webview+750设计稿）适配方案
+ * 1rem = 100px
  */
+(function(win, doc) {
+  var docEl = doc.documentElement;
+  var metaEl = doc.querySelector('meta[name="viewport"]');
+  var _dpr = win.devicePixelRatio || 1;
+  var _scale = 1 / _dpr;
 
-/* 设置rem */
-var dpr, rem, scale;
-var docEl = document.documentElement;
-var fontEl = document.createElement('style');
-var metaEl = document.querySelector('meta[name="viewport"]');
+  var setStyleFontSize = function(num) {
+    docEl.style.fontSize = (num > 100 ? 100 : num) + 'px';
+  };
+  // 计算并设置根元素fontSize
+  var calcRem = function() {
+    var _rem = (docEl.clientWidth * _dpr) / 7.5;
 
-dpr = window.devicePixelRatio || 1;
-rem = (docEl.clientWidth * dpr) / 7.5;
-scale = 1 / dpr;
+    /* 设置viewport，进行缩放，达到高清效果 */
+    metaEl.setAttribute(
+      'content',
+      'width=device-width' +
+        ',initial-scale=' +
+        _scale +
+        ',maximum-scale=' +
+        _scale +
+        ', minimum-scale=' +
+        _scale +
+        ',user-scalable=no'
+    );
+    /* 设置data-dpr属性，留作的css hack之用 */
+    docEl.setAttribute('data-dpr', _dpr);
 
-/* 设置viewport，进行缩放，达到高清效果 */
-metaEl.setAttribute(
-  'content',
-  'width=' +
-    dpr * docEl.clientWidth +
-    ',initial-scale=' +
-    scale +
-    ',maximum-scale=' +
-    scale +
-    ', minimum-scale=' +
-    scale +
-    ',user-scalable=no'
-);
+    /* 动态写入样式 */
+    setStyleFontSize(_rem);
 
-/* 设置data-dpr属性，留作的css hack之用 */
-docEl.setAttribute('data-dpr', dpr);
+    /* 给js调用的，某一dpr下rem和px之间的转换函数 */
+    win.rem2px = function(v) {
+      v = parseFloat(v);
+      return v * _rem;
+    };
+    win.px2rem = function(v) {
+      v = parseFloat(v);
+      return v / _rem;
+    };
 
-/* 动态写入样式 */
-docEl.firstElementChild.appendChild(fontEl);
-fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';
+    win.dpr = _dpr;
+    win.rem = _rem;
+  };
 
-/* 给js调用的，某一dpr下rem和px之间的转换函数 */
-window.rem2px = function(v) {
-  v = parseFloat(v);
-  return v * rem;
-};
-window.px2rem = function(v) {
-  v = parseFloat(v);
-  return v / rem;
-};
+  /* 解决部分手机webview一开始获取的clientWidth为0，导致font-size为0即1rem=0 的bug */
+  var canSetFontSize = function() {
+    if (docEl.clientWidth === 0) {
+      setTimeout(function() {
+        canSetFontSize();
+      }, 50);
+      return;
+    }
+    calcRem();
+  };
+  canSetFontSize();
 
-window.dpr = dpr;
-window.rem = rem;
+  /* 解决手机更改系统字体大小的适配问题 */
+  var calcScale = function() {
+    setTimeout(function() {
+      (function() {
+        try {
+          var realFz = parseInt(win.getComputedStyle(docEl).fontSize.replace('px', ''), 10);
 
-/* 解决手机系统字体更改后显示不正常的问题 */
-window.onload = function() {
-  setTimeout(function() {
-    (function() {
-      try {
-        var html = document.querySelector('html');
-        /* 1rem的实际展示px值 */
-        var realFz = parseInt(window.getComputedStyle(html).fontSize.replace('px', ''), 10);
+          var expectFz = parseInt(win.rem, 10);
+          console.log(realFz, expectFz);
 
-        /* 1rem的理论值 */
-        var expectFz = parseInt(window.rem, 10);
-        console.log(realFz, expectFz);
-
-        /* 不相等 则被缩放了 */
-        if (realFz != expectFz && document.documentElement.clientWidth < 750) {
-          /* 将期望值除以放大倍率 */
-          var realRem = expectFz / (realFz / expectFz);
-          console.log(realRem);
-          html.style.fontSize = realRem + 'px';
+          if (realFz != expectFz && docEl.clientWidth < 750) {
+            var realRem = expectFz / (realFz / expectFz);
+            setStyleFontSize(realRem);
+          }
+        } catch (e) {
+          console.error(e);
         }
-      } catch (e) {
-        console.error(e);
+      })();
+    }, 50);
+  };
+  win.onload = function() {
+    console.log('onload');
+    calcScale();
+  };
+
+  var debounce = function(fn, delay, immediate) {
+    if (!delay) {
+      delay = 300;
+    }
+    if (!immediate) {
+      immediate = false;
+    }
+    var timer = null;
+    return function() {
+      var that = this;
+      var argumentsCopy = arguments;
+      if (immediate && !timer) {
+        console.log(immediate, timer);
+        fn.apply(that, argumentsCopy);
       }
-    })();
-  }, 50);
-};
+      if (timer) {
+        clearTimeout(timer);
+      }
+      timer = setTimeout(function() {
+        if (!immediate) {
+          fn.apply(that, argumentsCopy);
+        }
+        timer = null;
+      }, delay);
+    };
+  };
+  win.onresize = debounce(function() {
+    console.log('onresize');
+    var _rem = docEl.clientWidth / 7.5;
+    setStyleFontSize(_rem);
+  });
+})(window, document);
