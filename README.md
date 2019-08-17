@@ -16,11 +16,45 @@
 
 ### 🏠 [Homepage](https://github.com/Mr-jiangzhiguo/book#readme)
 
-## Install
+## 🚀 Install
 
 ```sh
 npm install
 ```
+
+## ✨ Category
+
+### 🗒 share & article
+
+- [前端之路: 用 github 的 webhooks 实现项目自动化构建](https://github.com/Mr-jiangzhiguo/book/blob/master/share/01.webhooks.md)
+- [前端之路：紧跟潮流，docker 简单应用](https://github.com/Mr-jiangzhiguo/book/blob/master/share/02.docker.md)
+- [前端之路: 如何用 jenkins 构建部署项目](https://github.com/Mr-jiangzhiguo/book/blob/master/share/03.jenkins.md)
+- [前端之路：用 Angular 规范来约束团队 git 提交](https://github.com/Mr-jiangzhiguo/book/blob/master/share/04.commitmsg.md)
+- [前端之路：RN 拆包 demo（js 部分）](https://github.com/Mr-jiangzhiguo/book/blob/master/share/05.rnBundles.md)
+- [Async/Await 如何通过同步的方式实现异步](https://github.com/Mr-jiangzhiguo/book/blob/master/share/06.async_await.md)
+
+### 🛠 utils
+
+- [fetch 封装（timeout，cancel）](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/_fetch.js)
+- [复制到粘贴板（精壮）](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/copy2clipboard.js)
+- [（多屏幕+手机系统字体+webview+750 设计稿）适配方案](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/rem.js)
+- [个人常用工具函数封装](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js)
+  - [获取数据的具体类型](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L5)
+  - [根据路径获取对象的值](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L39)
+  - [获取某个区间[min=0, max]的随机数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L72)
+  - [格式化名次：在数字后面加上 st/nd/rd/th](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L86)
+  - [随机打乱数组](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L108)
+  - [将 css 转为驼峰对象](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L124)
+  - [深拷贝](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L167)
+  - [防抖动：（decorator）可装饰类内箭头函数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L195)
+  - [节流：（decorator）可装饰类内箭头函数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L249)
+  - [url query：json 对象转参数字符串](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L301)
+  - [url query：参数字符串转 json 对象](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L321)
+  - [格式化日期](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L337)
+  - [获取 utc 的时间戳](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L442)
+  - [utc 时间转目标时区的时间](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L452)
+  - [目标时区的时间转 utc 时间](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L465)
+  - [扩展 Error](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L478)
 
 ## Author
 
