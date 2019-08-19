@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+ip=$1
+
+(($+1)) || {
+    ip=$(w3m -dump http://www.ip138.com/ua.asp \
+        | grep CDN | sed 's/^.*\[//g;s/\].*$//g')
+    echo $ip
+}
+
+w3m -dump "http://www.ip138.com/ips1388.asp?ip=$ip&action=2" \
+    | grep '•.*数据' |sed 's/^ *//g'

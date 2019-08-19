@@ -1,0 +1,47 @@
+#!/bin/zsh
+
+# gentoo mirror from https://www.gentoo.org/downloads/mirrors/
+GENTOO_MIRROR_URL=http://mirrors.ustc.edu.cn/gentoo
+
+SOURCE_LIST_FILE=$HOME/.cache/source_list
+
+update_source_list() {
+    mkdir -p ${SOURCE_LIST_FILE:h} || return 1
+
+    echo "Generating source list file, wait a moment ..."
+
+    wget $GENTOO_MIRROR_URL/distfiles -O - | \
+        sed 's/^.*ref="//g;s/">.*$//g;/^[<.].*/d' > \
+        $SOURCE_LIST_FILE.new || return 1
+
+    mv $SOURCE_LIST_FILE.new $SOURCE_LIST_FILE
+}
+
+search_source_file() {
+    [[ -e $SOURCE_LIST_FILE ]] || update_source_list
+
+    grep $* $SOURCE_LIST_FILE
+}
+
+download_source_file() {
+    [[ -e $SOURCE_LIST_FILE ]] || update_source_list
+
+    for i ($*) {
+        wget $GENTOO_MIRROR_URL/distfiles/$i
+    }
+}
+
+if [[ $1 == update ]] {
+    update_source_list
+} elif [[ $1 == search ]] {
+    (( $+2 )) && {
+        search_source_file $*[2,-1]
+    }
+} elif [[ $1 == download ]] {
+    download_source_file $*[2,-1]
+} else {
+    echo "Usage:"
+    echo "    $0 update : update source list file"
+    echo "    $0 search source_name : search"
+    echo "    $0 download filename : download"
+}

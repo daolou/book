@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+zmodload zsh/net/tcp
+zmodload zsh/datetime
+
+(($# >= 1)) || {
+    echo "Usage: ${0:t} hostname [port]"
+    exit 1
+}
+
+index=0
+
+while ((++index)) {
+    begin=$EPOCHREALTIME
+
+    ztcp $1 ${2:-80}
+
+    result=$(((EPOCHREALTIME - begin) * 1000))
+
+    fd=$REPLY
+    [[ $fd == <-> ]] || exit 1
+
+    printf "Connected to $1[:${2:-80}]: seq=$index time=%.3f ms\n" $result
+
+    ztcp -c $fd
+
+    sleep 1
+}

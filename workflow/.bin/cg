@@ -1,0 +1,27 @@
+#!/bin/zsh
+
+cg=~/.cache/.cg
+
+(( $# > 0 )) && {
+    echo $PWD > $cg
+    name="$1"
+
+    [[ $name[1] == - ]] && {
+        name=$2
+
+        (( $# == 2 )) && flag=(-r .)
+    }
+
+    echo $name >> $cg
+
+    (( $# == 1 )) && flag=(-r .)
+
+    grep -PHn $* $flag --color=yes \
+        --exclude-dir=.svn \
+        --exclude-dir=.git \
+        --exclude-dir=.libs \
+        --exclude=tags \
+        | nl -n ln >> $cg
+}
+
+cat $cg

@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+
+# https://gist.github.com/lilydjwg/69111965e237fdb67d1378703173709f
+
+import sys
+import re
+
+import pyalpm
+
+def name_part(x):
+  return re.match('^[\w.-]+', x).group()
+
+def main(names):
+  h = pyalpm.Handle('/', '/var/lib/pacman')
+  ldb = h.get_localdb()
+  pkgs = ldb.pkgcache
+  needs_explicit = set()
+  needs_all = set(names)
+  for x in names:
+    p = ldb.get_pkg(x)
+    needs_all.update(name_part(y) for y in p.provides)
+  size = len(needs_all)
+
+  while True:
+    for p in pkgs:
+      if p.name in needs_all:
+        continue
+      d = set(name_part(x) for x in p.depends)
+      if d & needs_all:
+        needs_all.add(p.name)
+        if p.reason == 0:
+          needs_explicit.add(p.name)
+    if size == len(needs_all):
+      break
+    size = len(needs_all)
+  if needs_explicit:
+    print(' '.join(sorted(needs_explicit)))
+  else:
+    print('No packages need %s.' % names)
+    sys.exit(1)
+
+if __name__ == '__main__':
+  import argparse
+  parser = argparse.ArgumentParser(description='Find out who need some packages')
+  parser.add_argument('PKG', nargs='+', help='package name')
+  args = parser.parse_args()
+  main(args.PKG)

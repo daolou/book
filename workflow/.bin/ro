@@ -1,0 +1,22 @@
+#!/bin/zsh
+
+zmodload zsh/net/tcp
+
+(($+1)) || {
+    echo "Usage: ${0:t} port"
+    exit 1
+}
+
+ztcp -l $1
+listenfd=$REPLY
+
+[[ $listenfd == <-> ]] || exit 1
+
+while ((1)) {
+    ztcp -a $listenfd
+    fd=$REPLY
+    [[ $fd == <-> ]] || continue
+
+    cat <&$fd
+    ztcp -c $fd
+}

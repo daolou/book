@@ -1,0 +1,27 @@
+#!/bin/zsh
+
+# chall jpg 3 aa : aa[001..100].jpg
+
+local ext=.$1
+[[ $ext == . ]] && {
+    for i (**/*(.)) {
+        ext=.${i:e}
+        break
+    }
+}
+
+local num_width=$2
+[[ $num_width != <-> ]] && num_width=2
+typeset -Z $num_width num=1
+
+local prefix=$3
+
+for i (**/*(.)) {
+    [[ -e $prefix$num$ext ]] && {
+        echo "$prefix$num$ext exists, exit!"
+        return
+    }
+
+    mv $i $prefix$num$ext
+    ((++num))
+}

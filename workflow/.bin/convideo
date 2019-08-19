@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+index=1
+
+for i ($*) {
+    ln -s $i tmp_con$index.mp4
+    echo "file '"tmp_con$index.mp4"'" >> 0.input_list
+    $((index++))
+}
+
+ffmpeg -hide_banner -f concat -i 0.input_list -c copy output.mp4
+
+rm tmp_con*.mp4 0.input_list

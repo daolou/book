@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+alias run='~/.bin/z start'
+
+if [[ $1 == http* || $1 == www* ]] {
+    run "" $*
+    return
+}
+
+dir_name=${1:h}
+file_name=${1:t}
+
+if [[ $dir_name == / ]] {
+    cd /; run .
+} elif [[ $dir_name == /mnt ]] {
+    cd /; run "" $file_name:
+} else {
+    shift 2>/dev/null
+    cd $dir_name && run "" $file_name $*
+}

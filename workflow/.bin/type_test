@@ -1,0 +1,37 @@
+#!/bin/zsh
+
+zmodload zsh/datetime
+
+all="1234567890"
+#all="~!@#$%^&*()_+\`1234567890-={}[]:\";'<>?,./"
+
+while ((1)) {
+    text=""
+
+    for i ({1..$COLUMNS}) {
+        text+=$all[$(($RANDOM % $#all + 1))]
+    }
+
+    print -- $text
+
+    begin_time=$EPOCHREALTIME
+    read input
+    end_time=$EPOCHREALTIME
+
+    judge=""
+    right=0
+
+    for i ({1..$COLUMNS}) {
+        if [[ $text[$i] == $input[$i] ]] {
+            judge+="-"
+            ((++right))
+        } else {
+            judge+="x"
+        }
+    }
+
+    print -- $judge
+
+    printf "字数：%d  耗时：%.2lfs  准确率：%.2lf%%\n\n" \
+        $COLUMNS $((end_time - begin_time)) $((100.0 * right / COLUMNS))
+}

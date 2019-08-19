@@ -1,0 +1,85 @@
+#!/bin/zsh
+
+in_file=$1
+in_file_ext=${1:e}
+time_file=$2
+out_file=$1.out.mp4
+cut_after=0
+
+
+echo -n > 0.input_list
+echo "#EXTM3U" > 0.tmp.m3u
+
+if [[ ! $in_file_ext =~ "rm|flac|wmv" ]] {
+    convert_opts=(-acodec copy -vcodec copy)
+}
+
+if [[ $in_file_ext =~ "mkv|avi" ]] {
+    cut_after=1
+}
+
+index=1
+while {read s_time e_time} {
+    integer s_ms
+    integer e_ms
+
+    if [[ $s_time != *:* ]] {
+        ((s_ms = s_time * 1000))
+    } else {
+        if [[ $s_time != *:*:* ]] {
+            s_time=00:$s_time
+        }
+
+        s_s=$(($(date +%s -d${s_time%.*}) - $(date +%s -d0)))
+        if [[ $s_time == *.* ]] {
+            s_ms=${s_time#*.}
+        } else {
+            s_ms=0
+        }
+
+        ((s_ms += s_s * 1000))
+    }
+
+    if [[ $e_time != *:* ]] {
+        ((e_ms = e_time * 1000))
+    } else {
+        if [[ $e_time != *:*:* ]] {
+            e_time=00:$e_time
+        }
+
+        e_s=$(($(date +%s -d${e_time%.*}) - $(date +%s -d0)))
+        if [[ $e_time == *.* ]] {
+            e_ms=${e_time#*.}
+        } else {
+            e_ms=0
+        }
+
+        ((e_ms += e_s * 1000))
+    }
+
+    echo $s_time $e_time
+    echo $s_ms $e_ms
+
+    local duration=$(((e_ms - s_ms) / 1000)).$(((e_ms - s_ms) % 1000))
+
+    echo "file '"$index".tmp.mp4'" >> 0.input_list
+    echo "$index.tmp.mp4" >> 0.tmp.m3u
+
+    if ((cut_after)) {
+        ffmpeg -hide_banner -i $in_file -ss $s_time -t $duration $convert_opts $index.tmp.mp4 </dev/null
+    } else {
+        ffmpeg -hide_banner -ss $s_time -t $duration -i $in_file $convert_opts $index.tmp.mp4 </dev/null
+    }
+
+    ((index++))
+} < $time_file
+
+if ((index > 2)) {
+    ffmpeg -hide_banner -f concat -i 0.input_list -c copy $out_file
+} else {
+    mv 1.tmp.mp4 $out_file
+    touch 1.tmp.mp4
+}
+
+echo "Delete tmp files? (y/N)"
+read -q && rm -f 0.input_list *.tmp.mp4 0_cut_run.sh 0.tmp.m3u

@@ -1,0 +1,294 @@
+#!/bin/zsh
+
+get_type_by_name() {
+    case $1 {
+        (*.zip|*.7z|*.jar|*.epub)
+        echo 7z
+        ;;
+
+        (*.rar|*.iso)
+        echo 7z_r
+        ;;
+
+        (*.tar|*.tgz|*.txz|*.tbz2|*.tar.*)
+        echo tar
+        ;;
+
+        (*.cpio)
+        echo cpio
+        ;;
+
+        (*.cpio.*)
+        echo cpio_r
+        ;;
+
+        (*.gz)
+        echo gz
+        ;;
+
+        (*.xz)
+        echo xz
+        ;;
+
+        (*.bz2)
+        echo bz2
+        ;;
+
+        (*.lzma)
+        echo lzma
+        ;;
+
+        (*.lz4)
+        echo lz4
+        ;;
+
+        (*.ar)
+        echo ar
+        ;;
+
+        (*)
+        return 1
+        ;;
+    }
+}
+
+get_type_by_file() {
+    case $(file -bz $1) {
+        (*Zip *|7-zip *)
+        echo 7z
+        ;;
+
+        (RAR *)
+        echo 7z_r
+        ;;
+
+        (POSIX tar *|tar archive)
+        echo tar
+        ;;
+
+        (*cpio archive*)
+        echo cpio
+        ;;
+
+        (*gzip *)
+        echo gz
+        ;;
+
+        (*XZ *)
+        echo xz
+        ;;
+
+        (*bzip2 *)
+        echo bz2
+        ;;
+
+        (*LZMA *)
+        echo lzma
+        ;;
+
+        (*LZ4 *)
+        echo lz4
+        ;;
+
+        (current ar archive)
+        echo ar
+        ;;
+
+        (*)
+        return 1
+        ;;
+    }
+}
+
+
+(($+commands[tar])) || alias tar=bsdtar
+(($+commands[cpio])) || alias cpio=bsdcpio
+
+case ${0:t} {
+    (a)
+
+    (($#* >= 2)) || {
+        echo Usage: $0 target files/dirs
+        return 1
+    }
+
+    case $(get_type_by_name $1) {
+        (7z)
+        7z a $1 $*[2,-1]
+        ;;
+
+        (tar)
+        tar -cavf $1 $*[2,-1]
+        ;;
+
+        (cpio)
+        find $*[2,-1] -print0 | cpio -H newc -0ov > $1
+        ;;
+
+        (gz)
+        gzip -cv $*[2,-1] > $1
+        ;;
+
+        (xz)
+        xz -cv $*[2,-1] > $1
+        ;;
+
+        (bz2)
+        bzip2 -cv $*[2,-1] > $1
+        ;;
+
+        (lzma)
+        lzma -cv $*[2,-1] > $1
+        ;;
+
+        (lz4)
+        lz4 -cv $2 > $1
+        ;;
+
+        (ar)
+        ar rv $1 $*[2,-1]
+        ;;
+
+        (*)
+        echo $1: error
+        return 1
+        ;;
+    }
+    ;;
+
+    (al)
+
+    (($#* >= 1)) || {
+        echo Usage: $0 files
+        return 1
+    }
+
+    for i ($*) {
+        case $(get_type_by_name $i || get_type_by_file $i) {
+            (7z|7z_r)
+            7z l $i
+            ;;
+
+            (tar)
+            tar -tavf $i
+            ;;
+
+            (cpio|cpio_r)
+            cpio -itv < $i
+            ;;
+
+            (gz)
+            zcat $i
+            ;;
+
+            (xz)
+            xzcat $i
+            ;;
+
+            (bz2)
+            bzcat $i
+            ;;
+
+            (lzma)
+            lzcat $i
+            ;;
+
+            (lz4)
+            lz4cat $i
+            ;;
+
+            (ar)
+            ar tv $i
+            ;;
+
+            (*)
+            echo $i: error
+            ;;
+        }
+    }
+    ;;
+
+    (x)
+
+    (($#* >= 1)) || {
+        echo Usage: $0 files
+        return 1
+    }
+
+    for i ($*) {
+        local outdir=${${i:t}%.*}
+
+        [[ $outdir == *.tar ]] && {
+            outdir=$outdir[1, -5]
+        }
+
+        if [[ -e $outdir ]] {
+            outdir="$(mktemp -d -p $PWD x-XXX)"
+        } else {
+            mkdir $outdir
+        }
+
+        case $(get_type_by_name $i || get_type_by_file $i) {
+            (7z|7z_r)
+            7z x $i -o$outdir
+            ;;
+
+            (tar)
+            tar -xavf $i -C $outdir
+            ;;
+
+            (cpio|cpio_r)
+            local file_path=$i
+            [[ $i != /* ]] && file_path=$PWD/$i
+            cd $outdir && cpio -iv < $file_path && cd ..
+            ;;
+
+            (gz)
+            zcat $i > $outdir/$i[1,-4]
+            ;;
+
+            (xz)
+            xzcat $i > $outdir/$i[1,-4]
+            ;;
+
+            (bz2)
+            bzcat $i > $outdir/$i[1,-5]
+            ;;
+
+            (lzma)
+            lzcat $i > $outdir/$i[1,-6]
+            ;;
+
+            (lz4)
+            lz4cat $i > $outdir/$i[1,-5]
+            ;;
+
+            (ar)
+            local file_path=$i
+            [[ $i != /* ]] && file_path=$PWD/$i
+            cd $outdir && ar x $file_path && cd ..
+            ;;
+
+            (*)
+            echo $i: error
+            ;;
+        }
+
+        local files=$(ls -A $outdir)
+
+        if [[ -z $files ]] {
+            rmdir $outdir
+        } elif [[ -e $outdir/$files && ! -e $files ]] {
+            mv -v $outdir/$files . && rmdir $outdir
+            echo $i " -> " $files
+        } else {
+            echo $i " -> " $outdir
+        }
+    }
+    ;;
+
+    (*)
+    echo error
+    return 1
+    ;;
+}

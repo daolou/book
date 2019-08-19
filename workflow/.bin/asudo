@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+su -c "cd $PWD; LD_LIBRARY_PATH=$PREFIX/lib PATH=$PATH HOME=$PREFIX/../home TERM=xterm LANG=en_US.UTF-8 $*"

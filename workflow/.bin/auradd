@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+echo git clone ssh://aur@aur.archlinux.org/$1.git
+echo mksrcinfo
+echo git add PKGBUILD .SRCINFO
+echo git push origin master

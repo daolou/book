@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+echo "argv[0] = [$0]"
+
+local index=1
+for i ($*) {
+    echo "argv[$index] = [$i]"
+    ((++index))
+}

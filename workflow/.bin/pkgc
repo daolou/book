@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+(($+commands[pacman])) && {
+    for i ($(pacman -Qeq)) {
+        if (! pacman -Qi $i | grep -q 'Required By.*None') {
+            sudo pacman -D --asdeps $i
+        }
+    }
+}
+
+(($+commands[apt])) && {
+    for i ($(apt-mark showmanual)) {
+        grep Depends: ~/../usr/var/lib/dpkg/status \
+            | grep -w $i | grep -qv $i- && {
+            sudo apt-mark auto $i
+        }
+    }
+}
+
+return 0

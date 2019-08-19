@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+local -A dirs=(
+'c:\Users\goreliu\appdata\Local\Temp\' 'f:\system_temp'
+'c:\Users\goreliu\appdata\Local\CentBrowser\User Data\Default\Cache\' 'f:\chrome_cache\'
+'c:\Users\goreliu\appdata\Local\CentBrowser\User Data\Default\Media Cache\' 'f:\chrome_media_cache\'
+'c:\Users\goreliu\appdata\Local\Steam\htmlcache\Cache\' 'f:\steam_cache\'
+)
+
+for k v (${(kv)dirs}) {
+    # print -r $k
+    z rd /s /q $k
+    z mklink /D $k $v
+}

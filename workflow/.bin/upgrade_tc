@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+rm -rf Cache Plugins Tools User
+rm -f Hotkeys.txt
+rm -f *.ini
+
+mv Language/* /mnt/c/mine/app/totalcmd/Language/
+rmdir Language
+mv * /mnt/c/mine/app/totalcmd/

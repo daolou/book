@@ -1,0 +1,21 @@
+#!/bin/zsh
+
+[[ -e /init ]] && {
+    if (($# == 0)) {
+        ~/.bin/z shutdown -s -t 0
+    } elif (($1 == 1)) {
+        ~/.bin/z shutdown -r -t 0
+    }
+
+    return
+}
+
+(($+commands[systemctl])) && {
+    if (($# == 0)) {
+        sudo systemctl poweroff
+    } elif (($1 == 1)) {
+        sudo systemctl reboot
+    }
+
+    return
+}

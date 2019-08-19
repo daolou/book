@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+(($+2)) || {
+    echo 'Usage: renamex s/aaa/bbb/g *.txt'
+    return
+}
+
+for i ($*[2,-1]) {
+    local new_name="$(echo $i | sed $1)"
+    [[ $i == $new_name ]] && continue
+    mv -v $i $new_name
+}

@@ -1,0 +1,19 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+
+import xmlrpc.client
+
+s = xmlrpc.client.ServerProxy('http://192.168.1.6:6800/rpc').aria2
+
+for i in s.tellStopped(0, 10000):
+    if i['errorCode'] == '0':
+        print('Remove ' + i['gid'] + ' ' + i['files'][0]['path'])
+        print(s.removeDownloadResult(i['gid']))
+    else:
+        # from pprint import pprint
+        # pprint(i)
+        print(i['errorCode'] + ':' + i['errorMessage'])
+        print(i['gid'] + ' ' + i['files'][0]['path'])
+        print('Retry ...')
+        s.addUri([i['files'][0]['uris'][0]['uri']] * 5, s.getOption(i['gid']))
+        print(s.removeDownloadResult(i['gid']))

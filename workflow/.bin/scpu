@@ -1,0 +1,18 @@
+#!/bin/zsh
+
+local local_file=$HOME/.cache/cpu
+
+update() {
+    url=http://itianti.sinaapp.com/index.php/cpu
+
+    w3m -dump $url | \
+        grep -P '^\d+ ' | \
+        sed 's/ [*●] /   /g;s/\[cpu\]/     /g;s/\[cpu[12]\]/      /g' \
+        > $local_file
+}
+
+[[ ! -e $local_file || $1 = update ]] && {
+    update
+}
+
+cat $local_file | grep -Pi $*

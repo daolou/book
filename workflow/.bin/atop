@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+if (($# == 0)) {
+    # cpu
+    su -c "export LD_LIBRARY_PATH=$PREFIX/lib; export PATH=$PREFIX/bin; export HOME=$PREFIX/../home/.config/android/top_cpu; export TERM=xterm; export LANG=en_US.UTF-8; stty columns $COLUMNS; stty rows $LINES; top"
+} elif [[ $1 == 0 ]] {
+    # org
+    su -c "export LD_LIBRARY_PATH=$PREFIX/lib; export PATH=$PREFIX/bin; export HOME=$PREFIX/../home; export TERM=xterm; export LANG=en_US.UTF-8; stty columns $COLUMNS; stty rows $LINES; top"
+} elif [[ $1 == 1 ]] {
+    # mem
+    su -c "export LD_LIBRARY_PATH=$PREFIX/lib; export PATH=$PREFIX/bin; export HOME=$PREFIX/../home/.config/android/top_mem; export TERM=xterm; export LANG=en_US.UTF-8; stty columns $COLUMNS; stty rows $LINES; top"
+}
