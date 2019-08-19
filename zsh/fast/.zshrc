@@ -1,3 +1,6 @@
+# Time analytic
+zmodload zsh/zprof
+
 # 环境变量
 export GOPATH=$HOME/.go
 export GOROOT=/usr/local/opt/go/libexec
@@ -16,12 +19,12 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export TERM=xterm-256color
 
 # 插件
-plugins=(
-git
-vscode
-tmux
-sublime
-)
+# plugins=(
+# git
+# vscode
+# tmux
+# sublime
+# )
 
 # nvm config
 export NVM_DIR="$HOME/.nvm"
