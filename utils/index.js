@@ -247,7 +247,7 @@ export const debounce_next = (params = {}) => {
 };
 
 /**
- * @description 节流：（decorator）可装饰类内箭头函数
+ * @description 节流：（throttle）可装饰类内箭头函数
  * @param {object} params - 配置
  * @param {number} params.delay - 时间阀值（单位：ms），默认：delay=300
  * @returns {function} - 返回装饰器方法

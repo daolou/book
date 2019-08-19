@@ -36,7 +36,7 @@ npm install
 ### 🛠 utils
 
 - [fetch 封装（timeout，cancel）](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/_fetch.js)
-- [复制到粘贴板（精壮）](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/copy2clipboard.js)
+- [复制到粘贴板（健壮）](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/copy2clipboard.js)
 - [（多屏幕+手机系统字体+webview+750 设计稿）适配方案](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/rem.js)
 - [个人常用工具函数封装](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js)
   - [获取数据的具体类型](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L5)
@@ -47,7 +47,7 @@ npm install
   - [将 css 转为驼峰对象](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L124)
   - [深拷贝](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L167)
   - [防抖动：（decorator）可装饰类内箭头函数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L195)
-  - [节流：（decorator）可装饰类内箭头函数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L249)
+  - [节流：（throttle）可装饰类内箭头函数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L249)
   - [url query：json 对象转参数字符串](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L301)
   - [url query：参数字符串转 json 对象](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L321)
   - [格式化日期](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L337)
