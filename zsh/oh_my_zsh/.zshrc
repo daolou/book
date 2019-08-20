@@ -1,11 +1,12 @@
-# Time analytic 
+# Time analytic
 zmodload zsh/zprof
 
-# If you come from bash you might have to change your $PATH.
-export GOPATH="${HOME}/.go"
+# go环境变量
+export GOPATH=$HOME/.go
 export GOROOT="$(brew --prefix golang)/libexec"
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin:$GOROOT/bin
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
 
 # 如果你不是通过Android Studio安装的sdk，则其路径可能不同，请自行确定清楚。
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -15,7 +16,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/emulator
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jiangzhiguo/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -23,7 +24,7 @@ export ZSH="/Users/jiangzhiguo/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 
-# agnoster
+# agnoster https://github.com/agnoster/agnoster-zsh-theme
 ZSH_THEME="agnoster"
 
 # powerlevel10k
@@ -94,16 +95,18 @@ export TERM=xterm-256color
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+brew
 git
-zsh-completions
-zsh-autosuggestions
-vscode
-tmux
 sublime
+tmux
+vscode
+zsh-autosuggestions
+zsh-completions
+zsh-syntax-highlighting
 )
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
 
