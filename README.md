@@ -32,6 +32,7 @@ npm install
 - [前端之路：用 Angular 规范来约束团队 git 提交](https://github.com/Mr-jiangzhiguo/book/blob/master/share/04.commitmsg.md)
 - [前端之路：RN 拆包 demo（js 部分）](https://github.com/Mr-jiangzhiguo/book/blob/master/share/05.rnBundles.md)
 - [Async/Await 如何通过同步的方式实现异步](https://github.com/Mr-jiangzhiguo/book/blob/master/share/06.async_await.md)
+- [带 bar Mac Book Pro 主板损坏血泪史](https://github.com/Mr-jiangzhiguo/book/blob/master/share/07.workflow.md)
 
 ### 🛠 utils
 
@@ -55,6 +56,11 @@ npm install
   - [utc 时间转目标时区的时间](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L452)
   - [目标时区的时间转 utc 时间](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L465)
   - [扩展 Error](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L478)
+
+### ⚙️ dotFiles
+
+- tmux
+- zsh
 
 ## Author
 
