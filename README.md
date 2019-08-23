@@ -16,12 +16,6 @@
 
 ### 🏠 [Homepage](https://github.com/Mr-jiangzhiguo/book#readme)
 
-## 🚀 Install
-
-```sh
-npm install
-```
-
 ## ✨ Category
 
 ### 🗒 share & article
