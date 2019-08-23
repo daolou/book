@@ -441,7 +441,7 @@ export const dateFormat = (date, mask = 'yyyy-MM-dd HH:mm:ss') => {
 
 /**
  * @description 获取utc的时间戳
- * @param {string} dateStr - 日期字符串
+ * @param {string} dateStr - 本地日期对象/字符串
  * @returns {number} 返回utc时间戳
  */
 export const UTCTimestamp = dateStr => {
@@ -450,28 +450,36 @@ export const UTCTimestamp = dateStr => {
 };
 
 /**
- * @description utc时间转目标时区的时间
+ * @description utc时间转目标时区的时间，默认为utc时间转本地时间
  * @param {object|string} date - utc时间，日期对象/字符串
- * @param {number} timezone - 目标时区，默认：timezone=480（中国时区+0800）
+ * @param {number} timezone - 目标时区，默认：本地时区timezone=-480（中国时区+0800）
  * @param {*} mask - 日期格式,默认：mask='yyyy-MM-dd HH:mm:ss'
  * @returns {string} 返回目标时区的时间
  */
-export const UTC2Target = (date, timezone = 480, mask = 'yyyy-MM-dd HH:mm:ss') => {
-  const utcTimestamp = UTCTimestamp(date);
-  date = dateFormat(utcTimestamp + timezone * 60 * 1000, mask);
+export const UTC2Target = (
+  date,
+  timezone = new Date().getTimezoneOffset(),
+  mask = 'yyyy-MM-dd HH:mm:ss'
+) => {
+  const utcTimestamp = new Date(date).getTime();
+  date = dateFormat(new Date(utcTimestamp - timezone * 60 * 1000), mask);
   return date;
 };
 
 /**
- * @description 目标时区的时间转utc时间
+ * @description 目标时区的时间转utc时间，默认为本地时间转utc时间
  * @param {object|string} date - 目标时区时间，日期对象/字符串
- * @param {number} timezone - 目标时区，默认：timezone=480（中国时区+0800）
+ * @param {number} timezone - 目标时区，默认：本地时区timezone=-480（中国时区+0800）
  * @param {*} mask - 日期格式,默认：mask='yyyy-MM-dd HH:mm:ss'
  * @returns {string} 返回目标时区的utc时间
  */
-export const Target2UTC = (date, timezone = 480, mask = 'yyyy-MM-dd HH:mm:ss') => {
+export const Target2UTC = (
+  date,
+  timezone = new Date().getTimezoneOffset(),
+  mask = 'yyyy-MM-dd HH:mm:ss'
+) => {
   let targetTimestamp = new Date(date).getTime();
-  date = dateFormat(targetTimestamp - timezone * 60 * 1000, mask);
+  date = dateFormat(new Date(targetTimestamp + timezone * 60 * 1000), mask);
   return date;
 };
 
