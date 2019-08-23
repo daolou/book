@@ -342,8 +342,7 @@ export const qsParse = str => {
  */
 export const dateFormat = (date, mask = 'yyyy-MM-dd HH:mm:ss') => {
   const d = typeof date !== 'object' ? new Date(date) : date;
-  const zeroize = (value, length) => {
-    if (!length) length = 2;
+  const zeroize = (value, length = 2) => {
     value = String(value);
     let zeros = '';
     for (let i = 0, len = length - value.length; i < len; i++) {
@@ -440,13 +439,13 @@ export const dateFormat = (date, mask = 'yyyy-MM-dd HH:mm:ss') => {
 };
 
 /**
- * @description 获取utc的时间戳
- * @param {string} dateStr - 本地日期对象/字符串
+ * @description 获取目标时区时间的utc时间戳
+ * @param {string} date - 目标时区日期对象/字符串，默认：当前时间
+ * @param {number} timezone - 目标时区，默认：本地时区timezone=-480（中国时区+0800）
  * @returns {number} 返回utc时间戳
  */
-export const UTCTimestamp = dateStr => {
-  dateStr = dateStr ? new Date(dateStr) : new Date();
-  return dateStr.getTime() + dateStr.getTimezoneOffset() * 60 * 1000;
+export const UTCTimestamp = (date = new Date(), timezone = new Date().getTimezoneOffset()) => {
+  return new Date(date).getTime() + timezone * 60 * 1000;
 };
 
 /**

@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 const dateFormat = (date, mask = 'yyyy-MM-dd HH:mm:ss') => {
   const d = typeof date !== 'object' ? new Date(date) : date;
-  const zeroize = (value, length) => {
-    if (!length) length = 2;
+  const zeroize = (value, length = 2) => {
     value = String(value);
     let zeros = '';
     for (let i = 0, len = length - value.length; i < len; i++) {
@@ -98,9 +97,8 @@ const dateFormat = (date, mask = 'yyyy-MM-dd HH:mm:ss') => {
   );
 };
 
-const UTCTimestamp = dateStr => {
-  dateStr = dateStr ? new Date(dateStr) : new Date();
-  return dateStr.getTime() + dateStr.getTimezoneOffset() * 60 * 1000;
+const UTCTimestamp = (date = new Date(), timezone = new Date().getTimezoneOffset()) => {
+  return new Date(date).getTime() + timezone * 60 * 1000;
 };
 
 const UTC2Target = (
