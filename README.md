@@ -28,6 +28,7 @@
 - [Async/Await 如何通过同步的方式实现异步](https://github.com/Mr-jiangzhiguo/book/blob/master/share/06.async_await.md)
 - [带 bar Mac Book Pro 主板损坏血泪史](https://github.com/Mr-jiangzhiguo/book/blob/master/share/07.workflow.md)
 - [从封装一个日期处理工具到发布为 npm 公共包的全过程](https://github.com/Mr-jiangzhiguo/book/blob/master/share/08.npmPublish.md)
+- [作为面试官，我会问哪些问题？(基础篇)](https://github.com/Mr-jiangzhiguo/book/blob/master/share/09.interviewer_js.md)
 
 ### 🛠 utils
 
@@ -64,6 +65,12 @@
 
 - tmux
 - zsh
+
+### interviewer
+
+作为面试官，我会问哪些问题？
+
+- [js 基础](https://github.com/Mr-jiangzhiguo/book/blob/master/share/09.interviewer_js.md)
 
 ## Author
 
