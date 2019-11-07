@@ -43,14 +43,22 @@
   - [将 css 转为驼峰对象](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L124)
   - [深拷贝](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L167)
   - [防抖动：（decorator）可装饰类内箭头函数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L195)
-  - [节流：（throttle）可装饰类内箭头函数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L249)
+  - [节流：（decorator）可装饰类内箭头函数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L249)
   - [url query：json 对象转参数字符串](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L301)
   - [url query：参数字符串转 json 对象](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L321)
   - [格式化日期](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L337)
-  - [获取 utc 的时间戳](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L442)
-  - [utc 时间转目标时区的时间](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L452)
-  - [目标时区的时间转 utc 时间](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L465)
-  - [扩展 Error](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L478)
+  - [获取 utc 的时间戳](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L441)
+  - [utc 时间转目标时区的时间](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L450)
+  - [目标时区的时间转 utc 时间](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L467)
+  - [扩展 Error](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L484)
+  - [判断当前环境是否支持 webp 格式](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L495)
+  - [获取图片 base64](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L509)
+
+### 🧠 algorithm
+
+- [两数之和](https://github.com/Mr-jiangzhiguo/book/blob/master/algorithm/1.两数之和.js)
+- [背包(0-1)](<https://github.com/Mr-jiangzhiguo/book/blob/master/algorithm/2.背包(0-1).js>)
+- [整数反转](https://github.com/Mr-jiangzhiguo/book/blob/master/algorithm/3.整数反转.js)
 
 ### ⚙️ dotFiles
 
