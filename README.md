@@ -38,22 +38,23 @@
 - [个人常用工具函数封装](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js)
   - [获取数据的具体类型](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L5)
   - [根据路径获取对象的值](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L39)
-  - [获取某个区间[min=0, max]的随机数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L72)
-  - [格式化名次：在数字后面加上 st/nd/rd/th](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L86)
-  - [随机打乱数组](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L108)
-  - [将 css 转为驼峰对象](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L124)
-  - [深拷贝](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L167)
-  - [防抖动：（decorator）可装饰类内箭头函数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L195)
-  - [节流：（decorator）可装饰类内箭头函数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L249)
-  - [url query：json 对象转参数字符串](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L301)
-  - [url query：参数字符串转 json 对象](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L321)
-  - [格式化日期](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L337)
-  - [获取 utc 的时间戳](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L441)
-  - [utc 时间转目标时区的时间](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L450)
-  - [目标时区的时间转 utc 时间](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L467)
-  - [扩展 Error](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L484)
-  - [判断当前环境是否支持 webp 格式](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L495)
-  - [获取图片 base64](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L509)
+  - [获取某个区间[min=0, max]的随机数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L75)
+  - [格式化名次：在数字后面加上 st/nd/rd/th](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L89)
+  - [随机打乱数组](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L111)
+  - [将 css 转为驼峰对象](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L127)
+  - [深拷贝](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L170)
+  - [防抖动：（decorator）可装饰类内箭头函数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L198)
+  - [节流：（decorator）可装饰类内箭头函数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L252)
+  - [url query：json 对象转参数字符串](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L304)
+  - [url query：参数字符串转 json 对象](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L324)
+  - [格式化日期](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L340)
+  - [获取 utc 的时间戳](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L444)
+  - [utc 时间转目标时区的时间](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L453)
+  - [目标时区的时间转 utc 时间](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L470)
+  - [扩展 Error](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L487)
+  - [判断当前环境是否支持 webp 格式](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L498)
+  - [获取图片 base64](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L512)
+  - [将一维数组（arr）按一定数量（num）分为二维数组](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js#L557)
 
 ### 🧠 algorithm
 
@@ -65,6 +66,7 @@
 
 - tmux
 - zsh
+- vim
 
 ### interviewer
 
