@@ -29,6 +29,7 @@
 - [带 bar Mac Book Pro 主板损坏血泪史](https://github.com/Mr-jiangzhiguo/book/blob/master/share/07.workflow.md)
 - [从封装一个日期处理工具到发布为 npm 公共包的全过程](https://github.com/Mr-jiangzhiguo/book/blob/master/share/08.npmPublish.md)
 - [作为面试官，我会问哪些问题？(基础篇)](https://github.com/Mr-jiangzhiguo/book/blob/master/share/09.interviewer_js.md)
+- [Lerna + yarn 实现 monorepo 管理](https://github.com/Mr-jiangzhiguo/book/blob/master/share/10.monorepo.md)
 
 ### 🛠 utils
 
