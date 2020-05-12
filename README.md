@@ -30,6 +30,7 @@
 - [从封装一个日期处理工具到发布为 npm 公共包的全过程](https://github.com/Mr-jiangzhiguo/book/blob/master/share/08.npmPublish.md)
 - [作为面试官，我会问哪些问题？(基础篇)](https://github.com/Mr-jiangzhiguo/book/blob/master/share/09.interviewer_js.md)
 - [Lerna + yarn 实现 monorepo 管理](https://github.com/Mr-jiangzhiguo/book/blob/master/share/10.monorepo.md)
+- [给自己提了个 bug：setInterval 卡顿问题](https://github.com/Mr-jiangzhiguo/book/blob/master/share/11.setInterval.md)
 
 ### 🛠 utils
 
