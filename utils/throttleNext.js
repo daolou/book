@@ -7,8 +7,7 @@
 export const throttleNext = (params = {}) => {
   // reference：http://es6.ruanyifeng.com/#docs/decorator#%E6%96%B9%E6%B3%95%E7%9A%84%E4%BF%AE%E9%A5%B0
   return function(target, name, descriptor) {
-    let timer = null,
-      startTime = Date.now();
+    let [timer, startTime] = [null, Date.now()];
     const { delay = 300 } = params;
 
     // high order function
@@ -18,10 +17,8 @@ export const throttleNext = (params = {}) => {
 
     function createThrottle(fn) {
       return function throttle() {
-        let argumentsCopy = arguments;
-        let that = this;
-        let curTime = Date.now();
-        let remainimg = delay - (curTime - startTime);
+        const [argumentsCopy, that, curTime] = [arguments, this, Date.now()];
+        const remainimg = delay - (curTime - startTime);
 
         if (remainimg <= 0) {
           if (timer) {

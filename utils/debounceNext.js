@@ -18,15 +18,14 @@ export const debounceNext = (params = {}) => {
 
     function createDebounce(fn) {
       return function debounce() {
+        const [argumentsCopy, that] = [arguments, this];
+
         if (immediate && !timer) {
           fn.apply(this, arguments);
         }
         if (timer) {
           clearTimeout(timer);
         }
-
-        let argumentsCopy = arguments;
-        let that = this;
 
         timer = setTimeout(function() {
           if (!immediate) {

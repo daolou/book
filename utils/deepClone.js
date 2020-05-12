@@ -7,7 +7,7 @@ import { getDataType, MyError } from './index';
  */
 export const deepClone = target => {
   // 如果是json格式,调用原生JSON方法,
-  // NOTES: 会忽略函数属性,弃用
+  // NOTES: 会忽略函数、symbol等属性,弃用
   // if (JSON.stringify(target)) {
   //   return JSON.parse(JSON.stringify(target));
   // }
@@ -34,6 +34,10 @@ export const deepClone = target => {
           newObj[key] = new Date(originValue.getTime());
           break;
         case 'Function':
+        case 'AsyncFunction':
+        case 'GeneratorFunction':
+          // console.log('key:::', key);
+          // console.log('value:::', originValue.toString());
           newObj[key] = new Function(`return ${originValue.toString()};`)();
           break;
         default:

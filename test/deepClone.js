@@ -11,9 +11,18 @@ const obj1 = {
   d: [0, '1', { d1: 1 }],
   e: Symbol.for('eee'),
   f: function() {
-    console.log(this);
+    console.log('logf::', this);
+    return;
   },
-  g: {
+  g: async function() {
+    console.log('logg::', this);
+    return;
+  },
+  h: function*() {
+    yield console.log('logh::', this);
+    return;
+  },
+  i: {
     a: {
       b: {
         c: {
@@ -51,3 +60,4 @@ obj1.a = 2;
 obj2.push({ id: 4, name: '444', value: [444] });
 console.log(obj1, dc1);
 console.log(obj2, dc2);
+console.log(obj1.f(), dc1.f());
