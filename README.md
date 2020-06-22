@@ -20,49 +20,50 @@
 
 ### 🗒 share & article
 
-- [前端之路: 用 github 的 webhooks 实现项目自动化构建](https://github.com/Mr-jiangzhiguo/book/blob/master/share/01.webhooks.md)
-- [前端之路：紧跟潮流，docker 简单应用](https://github.com/Mr-jiangzhiguo/book/blob/master/share/02.docker.md)
-- [前端之路: 如何用 jenkins 构建部署项目](https://github.com/Mr-jiangzhiguo/book/blob/master/share/03.jenkins.md)
-- [前端之路：用 Angular 规范来约束团队 git 提交](https://github.com/Mr-jiangzhiguo/book/blob/master/share/04.commitmsg.md)
-- [前端之路：RN 拆包 demo（js 部分）](https://github.com/Mr-jiangzhiguo/book/blob/master/share/05.rnBundles.md)
-- [Async/Await 如何通过同步的方式实现异步](https://github.com/Mr-jiangzhiguo/book/blob/master/share/06.async_await.md)
-- [带 bar Mac Book Pro 主板损坏血泪史](https://github.com/Mr-jiangzhiguo/book/blob/master/share/07.workflow.md)
-- [从封装一个日期处理工具到发布为 npm 公共包的全过程](https://github.com/Mr-jiangzhiguo/book/blob/master/share/08.npmPublish.md)
-- [作为面试官，我会问哪些问题？(基础篇)](https://github.com/Mr-jiangzhiguo/book/blob/master/share/09.interviewer_js.md)
-- [Lerna + yarn 实现 monorepo 管理](https://github.com/Mr-jiangzhiguo/book/blob/master/share/10.monorepo.md)
-- [给自己提了个 bug：setInterval 卡顿问题](https://github.com/Mr-jiangzhiguo/book/blob/master/share/11.setInterval.md)
+- [前端之路: 用 github 的 webhooks 实现项目自动化构建](./share/01.webhooks.md)
+- [前端之路：紧跟潮流，docker 简单应用](./share/02.docker.md)
+- [前端之路: 如何用 jenkins 构建部署项目](./share/03.jenkins.md)
+- [前端之路：用 Angular 规范来约束团队 git 提交](./share/04.commitmsg.md)
+- [前端之路：RN 拆包 demo（js 部分）](./share/05.rnBundles.md)
+- [Async/Await 如何通过同步的方式实现异步](./share/06.async_await.md)
+- [带 bar Mac Book Pro 主板损坏血泪史](./share/07.workflow.md)
+- [从封装一个日期处理工具到发布为 npm 公共包的全过程](./share/08.npmPublish.md)
+- [作为面试官，我会问哪些问题？(基础篇)](./share/09.interviewer_js.md)
+- [Lerna + yarn 实现 monorepo 管理](./share/10.monorepo.md)
+- [给自己提了个 bug：setInterval 卡顿问题](./share/11.setInterval.md)
+- [前端工程化 -- 实践总结](./share/12.engineering.md)
 
 ### 🛠 utils
 
-- [fetch 封装（timeout，cancel）](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/_fetch.js)
-- [复制到粘贴板（健壮）](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/copy2clipboard.js)
-- [（多屏幕+手机系统字体+webview+750 设计稿）适配方案](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/rem.js)
-- [个人常用工具函数封装](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/index.js)
-  - [获取数据的具体类型](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/getDataType.js)
-  - [根据路径获取对象的值](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/getValue.js)
-  - [获取某个区间[min=0, max]的随机数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/generateRandom.js)
-  - [格式化名次：在数字后面加上 st/nd/rd/th](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/ordinalSuffixOf.js)
-  - [随机打乱数组](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/shuffle.js)
-  - [将 css 转为驼峰对象](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/css2obj.js)
-  - [深拷贝](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/deepClone.js)
-  - [防抖动：（decorator）可装饰类内箭头函数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/debounceNext.js)
-  - [节流：（decorator）可装饰类内箭头函数](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/throttleNext.js)
-  - [url Stringify：json 对象转参数字符串](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/qsStringify.js)
-  - [url Parse：参数字符串转 json 对象](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/qsParse.js)
-  - [格式化日期](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/dateFormat.js)
-  - [获取 utc 的时间戳](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/UTCTimestamp.js)
-  - [utc 时间转目标时区的时间](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/UTC2Target.js)
-  - [目标时区的时间转 utc 时间](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/Target2UTC.js)
-  - [扩展 Error](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/MyError.js)
-  - [判断当前环境是否支持 webp 格式](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/isSupportWebp.js)
-  - [获取图片 base64](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/getBase64.js)
-  - [将一维数组（arr）按一定数量（num）分为二维数组](https://github.com/Mr-jiangzhiguo/book/blob/master/utils/antiFlat.js)
+- [fetch 封装（timeout，cancel）](./utils/_fetch.js)
+- [复制到粘贴板（健壮）](./utils/copy2clipboard.js)
+- [（多屏幕+手机系统字体+webview+750 设计稿）适配方案](./utils/rem.js)
+- [个人常用工具函数封装](./utils/index.js)
+  - [获取数据的具体类型](./utils/getDataType.js)
+  - [根据路径获取对象的值](./utils/getValue.js)
+  - [获取某个区间[min=0, max]的随机数](./utils/generateRandom.js)
+  - [格式化名次：在数字后面加上 st/nd/rd/th](./utils/ordinalSuffixOf.js)
+  - [随机打乱数组](./utils/shuffle.js)
+  - [将 css 转为驼峰对象](./utils/css2obj.js)
+  - [深拷贝](./utils/deepClone.js)
+  - [防抖动：（decorator）可装饰类内箭头函数](./utils/debounceNext.js)
+  - [节流：（decorator）可装饰类内箭头函数](./utils/throttleNext.js)
+  - [url Stringify：json 对象转参数字符串](./utils/qsStringify.js)
+  - [url Parse：参数字符串转 json 对象](./utils/qsParse.js)
+  - [格式化日期](./utils/dateFormat.js)
+  - [获取 utc 的时间戳](./utils/UTCTimestamp.js)
+  - [utc 时间转目标时区的时间](./utils/UTC2Target.js)
+  - [目标时区的时间转 utc 时间](./utils/Target2UTC.js)
+  - [扩展 Error](./utils/MyError.js)
+  - [判断当前环境是否支持 webp 格式](./utils/isSupportWebp.js)
+  - [获取图片 base64](./utils/getBase64.js)
+  - [将一维数组（arr）按一定数量（num）分为二维数组](./utils/antiFlat.js)
 
 ### 🧠 algorithm
 
-- [两数之和](https://github.com/Mr-jiangzhiguo/book/blob/master/algorithm/1.两数之和.js)
-- [背包(0-1)](<https://github.com/Mr-jiangzhiguo/book/blob/master/algorithm/2.背包(0-1).js>)
-- [整数反转](https://github.com/Mr-jiangzhiguo/book/blob/master/algorithm/3.整数反转.js)
+- [两数之和](./algorithm/1.两数之和.js)
+- [背包(0-1)](<./algorithm/2.背包(0-1).js>)
+- [整数反转](./algorithm/3.整数反转.js)
 
 ### ⚙️ dotFiles
 
@@ -74,7 +75,7 @@
 
 作为面试官，我会问哪些问题？
 
-- [js 基础](https://github.com/Mr-jiangzhiguo/book/blob/master/share/09.interviewer_js.md)
+- [js 基础](./share/09.interviewer_js.md)
 
 ## Author
 
