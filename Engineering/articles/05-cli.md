@@ -2,9 +2,9 @@
 
 ## 原理
 
-- **命令行参数**：process.argv
+- **命令行参数**：[process.argv](https://devdocs.io/node/process#process_process_argv)
 - **脚本解释程序**：#!/usr/bin/env
-  - 脚本语言的第一行，目的是指出，你想要你的这个文件中的代码用什么可执行程序去运行它
+  - 放在脚本语言的第一行，目的是指出，你想要你的这个文件中的代码用什么可执行程序去运行它
   - 脚本用 env 启动的原因，是因为脚本解释器在 linux 中可能被安装于不同的目录，env 可以在系统的 PATH 目录中查找
 - **可执行文件的软链**：package.json: bin 字段
 
@@ -122,6 +122,10 @@ $ [ '/Users/jiangzhiguo/.nvm/versions/node/v10.15.3/bin/node',
   '-v' ]
   version is 1.0.0
 ```
+
+可以看到 cli-theory === node bin/index.js，简化了命令
+
+源码：<https://github.com/jsany/cli-theory>
 
 ## 完整的脚手架
 
