@@ -42,8 +42,8 @@ class Deque {
     if (this.isEmpty()) {
       return undefined;
     }
-    const result = this.list[this.count];
-    delete this.list[this.count];
+    const result = this.list[this.count - 1];
+    delete this.list[this.count - 1];
     this.count--;
     return result;
   };
@@ -59,7 +59,7 @@ class Deque {
     if (this.isEmpty()) {
       return undefined;
     }
-    return this.list[this.count];
+    return this.list[this.count - 1];
   };
   // 判断双端队列是不是为空
   isEmpty = () => {
