@@ -28,7 +28,7 @@ class LinkedList {
   // 边界检验
   _errorBoundary(index) {
     if (index < 0 || index >= this._size) {
-      throw `超出边界(${0}~${this._size})，目标位置${index}不存在！`;
+      throw new Error(`超出边界(${0}~${this._size})，目标位置${index}不存在！`);
     }
   }
   // 根据索引获取目标对象
@@ -64,14 +64,14 @@ class LinkedList {
   remove(element) {
     if (this._size < 1) return null;
 
-    if (this._head.element == element) {
+    if (this._head.element === element) {
       this._head.element = this._head.next;
       this._size--;
       return element;
     } else {
       let temp = this._head;
       while (temp.next) {
-        if (temp.next.element == element) {
+        if (temp.next.element === element) {
           temp.next = temp.next.next;
           this._size--;
           return element;
@@ -104,7 +104,7 @@ class LinkedList {
     let tempNode = v_head;
     // let tempEle = null;
     while (tempNode.next) {
-      if (tempNode.next.element == element) {
+      if (tempNode.next.element === element) {
         tempNode.next = tempNode.next.next;
         this._size--;
         // tempEle = element;
@@ -129,7 +129,7 @@ class LinkedList {
     let obj = this._head;
     let index = -1;
     for (let i = 0; i < this._size; i++) {
-      if (obj.element == element) {
+      if (obj.element === element) {
         index = i;
         break;
       }
@@ -150,7 +150,7 @@ class LinkedList {
   printf() {
     let obj = this._head;
     const arr = [];
-    while (obj != null) {
+    while (obj !== null) {
       arr.push(obj.element);
       obj = obj.next;
     }

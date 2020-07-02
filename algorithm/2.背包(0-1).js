@@ -17,9 +17,9 @@
  * @param {number} c -
  */
 function getResult(w, v, c) {
-  let i,
-    j,
-    n = w.length;
+  let i;
+  let j;
+  let n = w.length;
   let m = [];
   m[0] = [];
   for (i = 1; i < n + 1; i++) {
@@ -47,12 +47,12 @@ function getResult(w, v, c) {
 }
 
 function buileSolution(m, w, c) {
-  let i,
-    j = c,
-    n = w.length;
+  let i;
+  let j = c;
+  let n = w.length;
   let x = [];
   for (i = 1; i <= n; i++) {
-    if (m[i][j] == m[i - 1][j]) {
+    if (m[i][j] === m[i - 1][j]) {
       x[i - 1] = 0;
     } else {
       x[i - 1] = 1;

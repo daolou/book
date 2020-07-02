@@ -1,4 +1,27 @@
-
+**/*.md
 **/*.svg
 **/*.ejs
 **/*.html
+
+## OS
+.DS_Store
+.idea
+package-lock.json
+yarn.lock
+.npmrc
+
+# Ignored suffix
+*.log
+*.md
+*.svg
+*.png
+*ignore
+
+## Local
+site/vendor
+/test
+
+## Built-files
+.cache
+/dist
+/lib

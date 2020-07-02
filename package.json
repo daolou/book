@@ -2,46 +2,43 @@
   "name": "book",
   "version": "1.0.0",
   "description": "record daily code",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test:deepClone": "node --experimental-modules --loader ./loader.mjs ./test/deepClone.js"
+  "keywords": ["book", "daily", "learning"],
+  "homepage": "https://github.com/Mr-jiangzhiguo/book#readme",
+  "bugs": {
+    "url": "https://github.com/Mr-jiangzhiguo/book/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mr-jiangzhiguo/book.git"
   },
-  "keywords": [
-    "book",
-    "daily",
-    "learning"
-  ],
-  "author": "jzg",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Mr-jiangzhiguo/book/issues"
-  },
-  "homepage": "https://github.com/Mr-jiangzhiguo/book#readme",
-  "devDependencies": {
-    "chalk": "^2.4.2",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "husky": "^2.4.1",
-    "lint-staged": "^8.2.0",
-    "prettier": "^1.18.2"
+  "author": "jzg",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:deepClone": "node --experimental-modules --loader ./loader.mjs ./test/deepClone.js"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "commit-msg": "node .github/verifyCommitMsg"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
-    "*.{js,css,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "**/*.{js,jsx,ts,tsx,md,json}": ["prettier --write"],
+    "package.json": ["sort-package-json"]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "babel-eslint": "^10.1.0",
+    "chalk": "^2.4.2",
+    "eslint": "^7.3.1",
+    "eslint-config-alloy": "^3.7.3",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "sort-package-json": "^1.44.0"
   }
 }

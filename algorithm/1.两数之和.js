@@ -20,7 +20,7 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
+let twoSum = function (nums, target) {
   // for (let i = 0,len = nums.length; i < len; i++) {
   //     const nums0 = nums[i];
   //     const nums1 = target - nums0;
@@ -47,8 +47,8 @@ var twoSum = function(nums, target) {
 
 // test
 
-let nums = [2, 7, 11, 15],
-  target = 9;
+let nums = [2, 7, 11, 15];
+let target = 9;
 
 let res = twoSum(nums, target);
 console.log(res);

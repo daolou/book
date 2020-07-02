@@ -23,10 +23,10 @@
  * @param {number} x
  * @return {number}
  */
-var reverse = function(x) {
-  var MAX = 2147483647,
-    MIN = -2147483648;
-  var spill = function(num) {
+let reverse = function (x) {
+  let MAX = 2147483647;
+  let MIN = -2147483648;
+  let spill = function (num) {
     if (num >= MAX || num <= MIN) {
       return 0;
     } else {
@@ -34,11 +34,11 @@ var reverse = function(x) {
     }
   };
   // x = spill(x);
-  var sign = x < 0;
+  let sign = x < 0;
   if (sign) {
     x = -x;
   }
-  var y = 0;
+  let y = 0;
   while (x > 9) {
     y = y * 10 + (x % 10) * 10;
     x = parseInt(x / 10, 10);
