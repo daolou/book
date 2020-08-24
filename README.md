@@ -12,7 +12,7 @@
   </a>
 </p>
 
-> Record Daily Code
+> Record Daily Code, storage of dotfiles and workflows
 
 ### 🏠 [Homepage](https://github.com/Mr-jiangzhiguo/book#readme)
 
@@ -34,6 +34,8 @@
 - [前端工程化 -- 实践总结](./share/12.engineering.md)
 
 ### 🛠 utils
+
+#### 🆕 新版请看 <https://github.com/jsany/any/blob/main/packages/shared-utils/src/index.ts>
 
 - [fetch 封装（timeout，cancel）](./utils/_fetch.js)
 - [复制到粘贴板（健壮）](./utils/copy2clipboard.js)
@@ -62,7 +64,7 @@
 ### 🧠 algorithm
 
 - [两数之和](./algorithm/1.两数之和.js)
-- [背包(0-1)](<./algorithm/2.背包(0-1).js>)
+- [背包(0-1)](./algorithm/2.背包(0-1).js)
 - [整数反转](./algorithm/3.整数反转.js)
 
 ### ⚙️ dotFiles

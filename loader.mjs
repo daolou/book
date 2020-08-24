@@ -15,7 +15,7 @@ const allDependencies = {
   ...(PKG_JSON.devDependencies || {}),
 };
 
-//Node原生模信息
+// Node原生模信息
 const builtins = new Set(
   Object.keys(process.binding('natives')).filter(str => /^(?!(?:internal|node|v8)\/)/.test(str))
 );
