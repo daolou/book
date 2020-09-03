@@ -32,6 +32,8 @@
 - [Lerna + yarn 实现 monorepo 管理](./share/10.monorepo.md)
 - [给自己提了个 bug：setInterval 卡顿问题](./share/11.setInterval.md)
 - [前端工程化 -- 实践总结](./share/12.engineering.md)
+- [图解 React 原理](./share/14.react.md)
+- [chrome 扩展探索](./share/15.chrome_extension.md)
 
 ### 🛠 utils
 
