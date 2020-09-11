@@ -22,6 +22,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
+      "prepare-commit-msg": "devmoji -e --lint",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
@@ -34,6 +35,7 @@
     "@commitlint/config-conventional": "^9.0.1",
     "babel-eslint": "^10.1.0",
     "chalk": "^2.4.2",
+    "devmoji": "^2.1.9",
     "eslint": "^7.3.1",
     "eslint-config-alloy": "^3.7.3",
     "husky": "^4.2.5",
