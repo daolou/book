@@ -83,8 +83,8 @@ module.exports = SyncHook;
 
 - 内部将类 `Hook` 实例化为 `hook`
 - 在 `hook` 实例上挂载❶了属性 `tapAsync`, 属性值是 `TAP_ASYNC` 方法
-- 在 `hook` 实例上挂载❶了属性 `tapPromise`, 属性值是 `TAP_PROMISE` 方法
-- 在 `hook` 实例上挂载❶了属性 `compile`, 属性值是 `COMPILE` 方法
+- 在 `hook` 实例上挂载了属性 `tapPromise`, 属性值是 `TAP_PROMISE` 方法
+- 在 `hook` 实例上挂载了属性 `compile`, 属性值是 `COMPILE` 方法
 
 ❶: 挂载不准确, 其实这里是重写, 在下文分析 Hook 类的时候就会发现, 是重写了实例的方法
 
