@@ -1,39 +1,39 @@
 <h1 align="center">Welcome to book 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/npm/v/book.svg">
-  <a href="https://github.com/Mr-jiangzhiguo/book#readme">
+  <a href="https://github.com/daolou/book#readme">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
   </a>
-  <a href="https://github.com/Mr-jiangzhiguo/book/graphs/commit-activity">
+  <a href="https://github.com/daolou/book/graphs/commit-activity">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
   </a>
-  <a href="https://github.com/Mr-jiangzhiguo/book/blob/master/LICENSE">
+  <a href="https://github.com/daolou/book/blob/master/LICENSE">
     <img alt="License: ISC" src="https://img.shields.io/badge/License-ISC-yellow.svg" target="_blank" />
   </a>
 </p>
 
 > Record Daily Code, storage of dotfiles and workflows
 
-### 🏠 [Homepage](https://github.com/Mr-jiangzhiguo/book#readme)
+### 🏠 [Homepage](https://github.com/daolou/book#readme)
 
 ## ✨ Category
 
 ### 🗒 share & article
 
-- [前端之路: 用 github 的 webhooks 实现项目自动化构建](./share/01.webhooks.md)
-- [前端之路：紧跟潮流，docker 简单应用](./share/02.docker.md)
-- [前端之路: 如何用 jenkins 构建部署项目](./share/03.jenkins.md)
-- [前端之路：用 Angular 规范来约束团队 git 提交](./share/04.commitmsg.md)
-- [前端之路：RN 拆包 demo（js 部分）](./share/05.rnBundles.md)
-- [Async/Await 如何通过同步的方式实现异步](./share/06.async_await.md)
-- [带 bar Mac Book Pro 主板损坏血泪史](./share/07.workflow.md)
-- [从封装一个日期处理工具到发布为 npm 公共包的全过程](./share/08.npmPublish.md)
-- [作为面试官，我会问哪些问题？(基础篇)](./share/09.interviewer_js.md)
-- [Lerna + yarn 实现 monorepo 管理](./share/10.monorepo.md)
-- [给自己提了个 bug：setInterval 卡顿问题](./share/11.setInterval.md)
-- [前端工程化 -- 实践总结](./share/12.engineering.md)
-- [图解 React 原理](./share/14.react.md)
-- [chrome 扩展探索](./share/15.chrome_extension.md)
+- [2020-09-10 chrome 扩展探索](./share/15.chrome_extension.md)
+- [2020-07-18 图解 React 原理](./share/14.react.md)
+- [2020-05-04 前端工程化 -- 实践总结](./share/12.engineering.md)
+- [2020-03-25 给自己提了个 bug：setInterval 卡顿问题](./share/11.setInterval.md)
+- [2020-01-14 Lerna + yarn 实现 monorepo 管理](./share/10.monorepo.md)
+- [2019-11-07 作为面试官，我会问哪些问题？(基础篇)](./share/09.interviewer_js.md)
+- [2019-09-03 从封装一个日期处理工具到发布为 npm 公共包的全过程](./share/08.npmPublish.md)
+- [2019-08-21 带 bar Mac Book Pro 主板损坏血泪史](./share/07.workflow.md)
+- [2019-07-16 Async/Await 如何通过同步的方式实现异步](./share/06.async_await.md)
+- [2019-07-10 前端之路：RN 拆包 demo（js 部分）](./share/05.rnBundles.md)
+- [2019-06-26 前端之路：用 Angular 规范来约束团队 git 提交](./share/04.commitmsg.md)
+- [2019-05-05 前端之路: 如何用 jenkins 构建部署项目](./share/03.jenkins.md)
+- [2019-05-01 前端之路：紧跟潮流，docker 简单应用](./share/02.docker.md)
+- [2019-02-20 前端之路: 用 github 的 webhooks 实现项目自动化构建](./share/01.webhooks.md)
 
 ### 🛠 utils
 
@@ -63,6 +63,12 @@
   - [获取图片 base64](./utils/getBase64.js)
   - [将一维数组（arr）按一定数量（num）分为二维数组](./utils/antiFlat.js)
 
+### 🎨 components
+
+#### react
+
+- [倒计时组件](https://jsany.github.io/rc/countdown)
+
 ### 🧠 algorithm
 
 - [两数之和](./algorithm/1.两数之和.js)
@@ -85,11 +91,11 @@
 
 👤 **jzg**
 
-- Github: [@Mr-jiangzhiguo](https://github.com/Mr-jiangzhiguo)
+- Github: [@daolou](https://github.com/daolou)
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Mr-jiangzhiguo/book/issues).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/daolou/book/issues).
 
 ## Show your support
 
@@ -97,8 +103,8 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2019 [jzg](https://github.com/Mr-jiangzhiguo).<br />
-This project is [ISC](https://github.com/Mr-jiangzhiguo/book/blob/master/LICENSE) licensed.
+Copyright © 2019 [jzg](https://github.com/daolou).<br />
+This project is [ISC](https://github.com/daolou/book/blob/master/LICENSE) licensed.
 
 ---
 

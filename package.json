@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "record daily code",
   "keywords": ["book", "daily", "learning"],
-  "homepage": "https://github.com/Mr-jiangzhiguo/book#readme",
+  "homepage": "https://github.com/daolou/book#readme",
   "bugs": {
-    "url": "https://github.com/Mr-jiangzhiguo/book/issues"
+    "url": "https://github.com/daolou/book/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mr-jiangzhiguo/book.git"
+    "url": "git+https://github.com/daolou/book.git"
   },
   "license": "ISC",
   "author": "jzg",
