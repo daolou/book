@@ -81,6 +81,23 @@
 - zsh
 - vim
 
+### 🅰 applications
+
+- Visual Studio Code
+- Sublime Text
+- WebStorm
+- Xcode
+- iTerm
+- Alfred 4
+- iHosts
+- LICEcap
+- LightProxy
+- Charles
+- OmniGraffle
+- XMind
+- TinyPNG4Mac
+- Typora
+
 ### interviewer
 
 作为面试官，我会问哪些问题？
