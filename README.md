@@ -28,7 +28,7 @@
 - [2019-11-07 作为面试官，我会问哪些问题？(基础篇)](./share/09.interviewer_js.md)
 - [2019-09-03 从封装一个日期处理工具到发布为 npm 公共包的全过程](./share/08.npmPublish.md)
 - [2019-08-21 带 bar Mac Book Pro 主板损坏血泪史](./share/07.workflow.md)
-- [2019-07-16 Async/Await 如何通过同步的方式实现异步](./share/06.async_await.md)
+- [2019-07-16 Async/Await 深入理解](./share/06.async_await.md)
 - [2019-07-10 前端之路：RN 拆包 demo（js 部分）](./share/05.rnBundles.md)
 - [2019-06-26 前端之路：用 Angular 规范来约束团队 git 提交](./share/04.commitmsg.md)
 - [2019-05-05 前端之路: 如何用 jenkins 构建部署项目](./share/03.jenkins.md)
