@@ -11,7 +11,7 @@
 export const removeAllselection = () => {
   const selection = document.getSelection();
   if (!selection.rangeCount) {
-    return function() {};
+    return function () {};
   }
   let active = document.activeElement;
   const ranges = [];
@@ -29,17 +29,17 @@ export const removeAllselection = () => {
   }
   selection.removeAllRanges();
 
-  return function() {
+  return function () {
     selection.type === 'Caret' && selection.removeAllRanges();
     if (!selection.rangeCount) {
-      ranges.forEach(range => selection.addRange(range));
+      ranges.forEach((range) => selection.addRange(range));
     }
     active && active.focus();
   };
 };
 
 const defaultMessage = 'Copy to clipboard: #{key}, Enter';
-const format = message => {
+const format = (message) => {
   const copyKey = (/mac os x/i.test(navigator.userAgent) ? '⌘' : 'Ctrl') + '+C';
   return message.replace(/#{\s*key\s*}/g, copyKey);
 };
@@ -110,7 +110,7 @@ export const copy2clipboard = (text, options = {}) => {
     }
   } finally {
     if (selection) {
-      if (typeof selection.removeRange == 'function') {
+      if (typeof selection.removeRange === 'function') {
         selection.removeRange(rang);
       } else {
         selection.removeAllRanges();

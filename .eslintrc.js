@@ -21,6 +21,7 @@ module.exports = {
   },
   rules: {
     // 自定义你的规则
-    'no-param-reassign': 1
+    'no-param-reassign': 1,
+    'one-var': ['error', { var: 'always', let: 'always', const: 'never' }]
   }
 };
