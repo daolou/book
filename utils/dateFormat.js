@@ -16,7 +16,7 @@ export const dateFormat = (date, mask = 'yyyy-MM-dd HH:mm:ss') => {
   };
   return mask.replace(
     /"[^"]*"|'[^']*'|\b(?:d{1,4}|m{1,4}|yy(?:yy)?|([hHMstT])\1?|[lLZ])\b/g,
-    function($0) {
+    ($0) => {
       switch ($0) {
         case 'd':
           return d.getDate();
@@ -45,7 +45,7 @@ export const dateFormat = (date, mask = 'yyyy-MM-dd HH:mm:ss') => {
             'Sep',
             'Oct',
             'Nov',
-            'Dec',
+            'Dec'
           ][d.getMonth()];
         case 'MMMM':
           return [
@@ -60,7 +60,7 @@ export const dateFormat = (date, mask = 'yyyy-MM-dd HH:mm:ss') => {
             'September',
             'October',
             'November',
-            'December',
+            'December'
           ][d.getMonth()];
         case 'yy':
           return String(d.getFullYear()).substr(2);
@@ -85,8 +85,10 @@ export const dateFormat = (date, mask = 'yyyy-MM-dd HH:mm:ss') => {
         case 'l':
           return zeroize(d.getMilliseconds(), 3);
         case 'L':
-          var m = d.getMilliseconds();
-          if (m > 99) m = Math.round(m / 10);
+          let m = d.getMilliseconds();
+          if (m > 99) {
+            m = Math.round(m / 10);
+          }
           return zeroize(m);
         case 'tt':
           return d.getHours() < 12 ? 'am' : 'pm';

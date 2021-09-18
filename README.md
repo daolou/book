@@ -81,6 +81,10 @@
 - zsh
 - vim
 
+### 🔠 Fonts
+
+- [MonoLisa](./fonts/MonoLisa%20Font/)
+
 ### 🅰 applications
 
 - Visual Studio Code
@@ -88,7 +92,9 @@
 - WebStorm
 - Xcode
 - iTerm
+  - [my settings](./iterm2/profile/Default.json)
 - Alfred 4
+  - [my settings](./alfred/Alfred.alfredpreferences/)
 - iHosts
 - LICEcap
 - LightProxy
@@ -97,6 +103,13 @@
 - XMind
 - TinyPNG4Mac
 - Typora
+- KeyCastr
+- KeepingYouAwake
+- Flux
+- RunCat
+- Kite
+- RDM
+- 即可地球
 
 ### interviewer
 

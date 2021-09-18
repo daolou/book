@@ -7,7 +7,7 @@
  */
 export const debounceNext = (params = {}) => {
   // reference：http://es6.ruanyifeng.com/#docs/decorator#%E6%96%B9%E6%B3%95%E7%9A%84%E4%BF%AE%E9%A5%B0
-  return function(target, name, descriptor) {
+  return function (target, name, descriptor) {
     let timer = null;
     const { delay = 300, immediate = false } = params;
 
@@ -27,7 +27,7 @@ export const debounceNext = (params = {}) => {
           clearTimeout(timer);
         }
 
-        timer = setTimeout(function() {
+        timer = setTimeout(() => {
           if (!immediate) {
             fn.apply(that, argumentsCopy);
           }
@@ -41,9 +41,9 @@ export const debounceNext = (params = {}) => {
       return {
         enumerable: false,
         configurable: true,
-        get: function() {
+        get: function () {
           return createDebounce(descriptor.initializer.call(this));
-        },
+        }
       };
     }
 

@@ -59,13 +59,13 @@ const format = (message) => {
             });
  */
 export const copy2clipboard = (text, options = {}) => {
-  let debug,
-    message,
-    reselectPrevious,
-    rang,
-    selection,
-    mark,
-    success = false;
+  let debug;
+  let message;
+  let reselectPrevious;
+  let rang;
+  let selection;
+  let mark;
+  let success = false;
   debug = options.debug || false;
   try {
     reselectPrevious = removeAllselection();

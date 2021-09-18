@@ -1,0 +1,8 @@
+{
+  "alfredsnippet": {
+    "snippet": "cls(`${prefixCls}-`)",
+    "uid": "1E59A60A-E71D-4BF2-B855-199D9275AAAA",
+    "name": "cls",
+    "keyword": "!cls"
+  }
+}

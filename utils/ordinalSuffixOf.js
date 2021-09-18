@@ -5,9 +5,9 @@
  * @returns {string} -返回格式化后的名次
  */
 export const ordinalSuffixOf = (i, lower = true) => {
-  let j = i % 10,
-    k = i % 100,
-    res = 'th';
+  let j = i % 10;
+  let k = i % 100;
+  let res = 'th';
   if (j == 1 && k != 11) {
     res = 'st';
   }

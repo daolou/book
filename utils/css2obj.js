@@ -9,7 +9,7 @@
  */
 export const css2obj = (str, opt = {}) => {
   const obj = {};
-  opt = Object.assign({ rem: false, unit: 100, fixed: 2 }, opt);
+  opt = { rem: false, unit: 100, fixed: 2, ...opt };
   // 去除;后面空格/回车/制表符
   str = str.replace(/;(\s|\r|\t)*/g, ';');
   // ;分割css属性
@@ -17,7 +17,7 @@ export const css2obj = (str, opt = {}) => {
   // 去除最后一位空值
   arr1.pop();
   // 遍历得到的数组
-  arr1.forEach(item => {
+  arr1.forEach((item) => {
     // :分割得到['属性:属性值']
     const arr2 = item.split(':');
     // 将属性转为驼峰

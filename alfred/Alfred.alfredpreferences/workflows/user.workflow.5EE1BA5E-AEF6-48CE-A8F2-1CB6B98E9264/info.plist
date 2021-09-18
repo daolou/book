@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>0F81995F-2E70-4B85-B26D-207C8B6CD843</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FA88BD53-F537-41B1-BD4B-3AAD9E80620E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>30A7E9EA-CA07-4DF8-901A-5C408F9C76E5</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>30A7E9EA-CA07-4DF8-901A-5C408F9C76E5</key>
+		<array/>
+		<key>FA88BD53-F537-41B1-BD4B-3AAD9E80620E</key>
+		<array/>
+	</dict>
+	<key>createdby</key>
+	<string>@AlexMartinFR</string>
+	<key>description</key>
+	<string>Easily toggle between Dark &amp; Light mode, on both macOS &amp; Alfred! Comes with a set of Dark and Light accented Alfred themes.</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Mojave Themes Switcher - v1.2.1</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>&gt;&amp;2 echo {query}
+
+if [ {query} = "Install" ]
+then
+
+if [ ! -d "${alfred_preferences}/themes/" ]; then
+  mkdir "${alfred_preferences}/themes/"
+fi
+
+dest=${alfred_preferences}/themes/
+
+for color in Blue Purple Pink Red Orange Yellow Green Gray
+do
+
+	l="${dest}theme.autoimport.Mojave-Light-${color}"
+	d="${dest}theme.autoimport.Mojave-Dark-${color}"
+
+	[[ -d "$l" ]] || mkdir "$l"
+	[[ -d "$d" ]] || mkdir "$d"
+
+done
+
+# big refactor opportunity here, but it works
+
+	curl -o "${dest}theme.autoimport.Mojave-Dark-Blue/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Dark%20-%20Blue.alfredappearance
+	curl -o "${dest}theme.autoimport.Mojave-Dark-Purple/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Dark%20-%20Purple.alfredappearance
+	curl -o "${dest}theme.autoimport.Mojave-Dark-Pink/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Dark%20-%20Pink.alfredappearance
+	curl -o "${dest}theme.autoimport.Mojave-Dark-Red/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Dark%20-%20Red.alfredappearance
+	curl -o "${dest}theme.autoimport.Mojave-Dark-Orange/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Dark%20-%20Orange.alfredappearance
+	curl -o "${dest}theme.autoimport.Mojave-Dark-Yellow/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Dark%20-%20Yellow.alfredappearance
+	curl -o "${dest}theme.autoimport.Mojave-Dark-Green/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Dark%20-%20Green.alfredappearance
+	curl -o "${dest}theme.autoimport.Mojave-Dark-Gray/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Dark%20-%20Gray.alfredappearance
+	
+	curl -o "${dest}theme.autoimport.Mojave-Light-Blue/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Light%20-%20Blue.alfredappearance
+	curl -o "${dest}theme.autoimport.Mojave-Light-Purple/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Light%20-%20Purple.alfredappearance
+	curl -o "${dest}theme.autoimport.Mojave-Light-Pink/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Light%20-%20Pink.alfredappearance
+	curl -o "${dest}theme.autoimport.Mojave-Light-Red/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Light%20-%20Red.alfredappearance
+	curl -o "${dest}theme.autoimport.Mojave-Light-Orange/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Light%20-%20Orange.alfredappearance
+	curl -o "${dest}theme.autoimport.Mojave-Light-Yellow/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Light%20-%20Yellow.alfredappearance
+	curl -o "${dest}theme.autoimport.Mojave-Light-Green/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Light%20-%20Green.alfredappearance
+	curl -o "${dest}theme.autoimport.Mojave-Light-Gray/theme.json" https://raw.githubusercontent.com/AlexMartinFR/mojave-alfred-accented-themes/master/themes/Mojave%20Light%20-%20Gray.alfredappearance
+
+fi</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>FA88BD53-F537-41B1-BD4B-3AAD9E80620E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>fixedorder</key>
+				<false/>
+				<key>items</key>
+				<string>[{"title":"Toggle","subtitle":"Switch between Dark &amp; Light Themes"},{"imagefile":"839a804b7bca096d0be56899ce59de137448dc33.png","title":"Blue","arg":"Blue","subtitle":"Blue Accent Color"},{"imagefile":"ea165466c081c7b637b86f84ea08c8190d5c3299.png","title":"Purple","arg":"Purple","subtitle":"Purple Accent Color"},{"imagefile":"532c51e69231ad0ee6e770010c0f82408fcfa892.png","title":"Pink","arg":"Pink","subtitle":"Pink Accent Color"},{"imagefile":"c62a583b90701277a41eed47d082ae0857fa07bc.png","title":"Red","arg":"Red","subtitle":"Red Accent Color"},{"imagefile":"1eff2688356bdef7f4dc7464f99d25b802cb635e.png","title":"Orange","arg":"Orange","subtitle":"Orange Accent Color"},{"imagefile":"0f26da0c006cbf62629472d8afb62de58ccc326a.png","title":"Yellow","arg":"Yellow","subtitle":"Yellow Accent Color"},{"imagefile":"53d02c40ef9e6679f9c7edc8d4fb28421179f40a.png","title":"Green","arg":"Green","subtitle":"Green Accent Color"},{"imagefile":"138d099d7d2f8c9dcb58042f82bda469766786cd.png","title":"Gray","arg":"Gray","subtitle":"Gray Accent Color"},{"title":"Install","arg":"Install","subtitle":"Download the lastest versions of the 16 themes variants. Let's save you some time!"}]</string>
+				<key>keyword</key>
+				<string>theme</string>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Change macOS &amp; Alfred themes</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.listfilter</string>
+			<key>uid</key>
+			<string>0F81995F-2E70-4B85-B26D-207C8B6CD843</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>/*
+ * Lookup table used to maintain the user selected Accent Color upon Dark/Light toggle.
+ * Matches the "alfred_theme_background" variable results for each theme with their corresponding Accent Colors.
+ */
+
+var accentColorLookup = {
+
+	// Light Themes
+
+	"rgba(252,253,255,0.84)": "Blue",		// #FCFDFFD6
+	"rgba(254,252,255,0.84)": "Purple",	// #FEFCFFD6
+	"rgba(255,252,253,0.84)": "Pink",		// #FFFCFDD6
+	"rgba(255,252,252,0.84)": "Red",		// #FFFCFCD6
+	"rgba(255,253,252,0.84)": "Orange",	// #FFFDFCD6
+	"rgba(255,254,252,0.84)": "Yellow",	// #FFFEFCD6
+	"rgba(252,255,252,0.84)": "Green",	// #FCFFFCD6
+	"rgba(255,255,255,0.84)": "Gray",		// #FFFFFFD6
+
+
+	// Dark Themes
+
+	"rgba(50,51,53,0.77)": "Blue",		// #323335C4
+	"rgba(52,50,53,0.77)": "Purple",		// #343235C4
+	"rgba(53,50,51,0.77)": "Pink",		// #353233C4
+	"rgba(53,50,50,0.77)": "Red",			// #353232C4
+	"rgba(53,51,50,0.77)": "Orange",		// #353332C4
+	"rgba(53,52,50,0.77)": "Yellow",		// #353432C4
+	"rgba(50,53,50,0.77)": "Green",		// #323532C4
+	"rgba(53,53,53,0.77)": "Gray",		// #353535C4
+
+}
+
+
+function run(args) {
+
+	args = args ? args : []
+
+	systemEvents = Application("System Events")
+
+	ObjC.import('stdlib')
+
+	alfredMajorVer = $.getenv('alfred_version').charAt(0)
+	alfredAppName = "Alfred " + alfredMajorVer
+	alfredApp = Application(alfredAppName)
+
+	actualTheme = $.getenv('alfred_theme_background')
+
+	
+	actualAccent = accentColorLookup[actualTheme]
+
+	isDark = systemEvents.appearancePreferences.darkMode()
+
+	actualMode = isDark ? 'Dark' : 'Light'
+	reverseMode = isDark ? 'Light' : 'Dark'
+
+	
+	// Arg is one of the Accent Color, let's swap Alfred's theme
+
+	if (args.length !== 0 &amp;&amp; args !== "install") {
+		alfredApp.setTheme("Mojave " + actualMode + " - " + args)
+	}
+
+	// Without args, toggles between Dark &amp; Light mode.
+
+	if (args.length == 0) {
+		systemEvents.appearancePreferences.darkMode = !systemEvents.appearancePreferences.darkMode()
+		alfredApp.setTheme("Mojave " + reverseMode + " - " + actualAccent)
+	}
+
+}</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>7</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>30A7E9EA-CA07-4DF8-901A-5C408F9C76E5</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Workflow designed to work with the "Mojave Alfred Accented Themes" collection : https://github.com/AlexMartinFR/mojave-alfred-accented-themes
+
+1.2.1 - "Install" command bug fixed :^)
+
+1.2.0 - New "Install" command (Download &amp; update the 16 themes at once).
+
+1.1.1 - Support for Alfred 4. (Thanks to https://github.com/MrXcitement for the fix!)</string>
+	<key>uidata</key>
+	<dict>
+		<key>0F81995F-2E70-4B85-B26D-207C8B6CD843</key>
+		<dict>
+			<key>note</key>
+			<string>Commands list:
+
+- theme
+	Toggles between Dark and Light mode.
+
+- theme blue
+- theme purple
+- theme pink
+- theme red
+- theme orange
+- theme yellow
+- theme green
+- theme gray
+	Switch your actual theme to the selected accent color.</string>
+			<key>xpos</key>
+			<integer>180</integer>
+			<key>ypos</key>
+			<integer>300</integer>
+		</dict>
+		<key>30A7E9EA-CA07-4DF8-901A-5C408F9C76E5</key>
+		<dict>
+			<key>note</key>
+			<string>This workflow reads the actual theme's background color to deduce your actual Accent Color.
+If you don't use the "Mojave Alfred Accented Themes" collection, you can still edit the background colors lookup table to adapt to similar themes.
+
+I basically used the hue in the window's background color as an identifier for your actual Accent Color.</string>
+			<key>xpos</key>
+			<integer>440</integer>
+			<key>ypos</key>
+			<integer>300</integer>
+		</dict>
+		<key>FA88BD53-F537-41B1-BD4B-3AAD9E80620E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>440</integer>
+			<key>ypos</key>
+			<integer>155</integer>
+		</dict>
+	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.2.1</string>
+	<key>webaddress</key>
+	<string>https://github.com/AlexMartinFR</string>
+</dict>
+</plist>

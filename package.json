@@ -13,11 +13,12 @@
   },
   "license": "ISC",
   "author": "jzg",
-  "type": "module",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:deepClone": "node --experimental-modules --loader ./loader.mjs ./test/deepClone.js"
+    "test:deepClone": "node --experimental-modules --loader ./loader.mjs ./test/deepClone.js",
+    "eslint:fix": "alloy-eslint --fix --ext .js,.jsx,.ts,.tsx ."
   },
   "husky": {
     "hooks": {
@@ -36,8 +37,8 @@
     "babel-eslint": "^10.1.0",
     "chalk": "^2.4.2",
     "devmoji": "^2.1.9",
-    "eslint": "^7.3.1",
-    "eslint-config-alloy": "^3.7.3",
+    "eslint": "^7.19.0",
+    "eslint-config-alloy": "^3.10.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",

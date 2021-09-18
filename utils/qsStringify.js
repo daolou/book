@@ -6,8 +6,8 @@
  */
 export const qsStringify = (obj = {}, encode = false) => {
   const str = Object.keys(obj)
-    .filter(k => obj[k] || +obj[k] === 0)
-    .map(k => {
+    .filter((k) => obj[k] || Number(obj[k]) === 0)
+    .map((k) => {
       let value = obj[k];
       if (typeof value === 'object') {
         value = JSON.stringify(value);
