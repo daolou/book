@@ -84,6 +84,9 @@
 ### 🔠 Fonts
 
 - [MonoLisa](./fonts/MonoLisa%20Font/)
+- font-fira-code
+- font-hack-nerd-font
+- font-jetbrains-mono
 
 ### 🅰 applications
 
@@ -93,7 +96,8 @@
 - Xcode
 - iTerm
   - [my settings](./iterm2/profile/Default.json)
-- Alfred 4
+- warp
+- Alfred 5
   - [my settings](./alfred/Alfred.alfredpreferences/)
 - iHosts
 - LICEcap
@@ -103,13 +107,15 @@
 - XMind
 - TinyPNG4Mac
 - Typora
+- obsidian
 - KeyCastr
-- KeepingYouAwake
-- Flux
-- RunCat
-- Kite
-- RDM
-- 即可地球
+- bartender 5
+- aldente
+- itsycal
+- monitorcontrol
+- snipaste
+- arc
+- alt-tab
 
 ### interviewer
 
