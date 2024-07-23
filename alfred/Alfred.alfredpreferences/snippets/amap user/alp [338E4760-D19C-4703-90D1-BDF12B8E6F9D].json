@@ -1,8 +1,0 @@
-{
-  "alfredsnippet": {
-    "snippet": "ajx.log.print(`====>${JSON.stringify()}`);",
-    "uid": "338E4760-D19C-4703-90D1-BDF12B8E6F9D",
-    "name": "alp",
-    "keyword": "!alp"
-  }
-}

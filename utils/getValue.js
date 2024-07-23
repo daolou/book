@@ -26,7 +26,7 @@ export const getValue = (obj, keypath, defaultValue = undefined) => {
   keypath = keypath
     .replace(/\[(\d+)\]/g, '.$1')
     .split('.')
-    .filter(item => !['', null, undefined].includes(item));
+    .filter((item) => !['', null, undefined].includes(item));
   for (const key of keypath) {
     obj = Object(obj)[key];
     if (obj === undefined) {

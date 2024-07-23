@@ -3,7 +3,7 @@
  * @param {any} o - 要判断的数据
  * @returns {string} - 返回该数据的具体类型
  */
-export const getDataType = o => {
+export const getDataType = (o) => {
   // 映射数据类型
   const map2DataType = {
     '[object String]': 'String',
@@ -22,7 +22,7 @@ export const getDataType = o => {
     '[object Promise]': 'Promise',
     '[object NodeList]': 'NodeList',
     '[object Date]': 'Date',
-    '[object FormData]': 'FormData',
+    '[object FormData]': 'FormData'
   };
   o = Object.prototype.toString.call(o);
   if (map2DataType[o]) {

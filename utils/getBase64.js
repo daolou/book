@@ -3,7 +3,7 @@
  * @param {string} imgSrc - 图片地址（需要允许跨域）
  * @returns {Promise}
  */
-export const getBase64 = imgSrc => {
+export const getBase64 = (imgSrc) => {
   return new Promise((resolve, reject) => {
     if (typeof FileReader !== 'undefined') {
       const xhr = new XMLHttpRequest();
@@ -15,7 +15,7 @@ export const getBase64 = imgSrc => {
             const reader = new FileReader();
             reader.readAsDataURL(xhr.response);
             reader.onloadend = () => resolve(reader.result);
-            reader.onerror = error => reject(error);
+            reader.onerror = (error) => reject(error);
           }
         }
       };
@@ -38,7 +38,7 @@ export const getBase64 = imgSrc => {
           reject(error);
         }
       };
-      img.onerror = error => reject(error);
+      img.onerror = (error) => reject(error);
     }
   });
 };

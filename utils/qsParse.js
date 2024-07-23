@@ -3,11 +3,11 @@
  * @param {string} str - 参数字符串
  * @returns {object} 返回 json对象
  */
-export const qsParse = str => {
+export const qsParse = (str) => {
   const obj = {};
   decodeURIComponent(str)
     .split('&')
-    .forEach(item => {
+    .forEach((item) => {
       const arr = item.split('=');
       obj[arr[0]] = arr[1];
     });

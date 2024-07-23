@@ -4,10 +4,7 @@
  */
 export const isSupportWebp = () => {
   const isSupport =
-    document
-      .createElement('canvas')
-      .toDataURL('image/webp')
-      .indexOf('data:image/webp') === 0;
+    document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0;
   console.info(isSupport);
   return isSupport;
 };

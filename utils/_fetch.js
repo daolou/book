@@ -36,8 +36,8 @@ const defaultConfig = {
   mode: 'cors',
   cache: 'default',
   headers: {
-    'Content-Type': 'application/json',
-  },
+    'Content-Type': 'application/json'
+  }
 };
 // 校验status状态码
 const checkStatus = (reject, response) => {
@@ -49,45 +49,48 @@ const checkStatus = (reject, response) => {
     reject(response2json);
   }
 };
-export const _fetch = (fetch => (url, { timeout = defaultTimeout, ...rest }) => {
-  console.log(url, { timeout, ...rest });
-  // 定义终止函数
-  let Abort = null;
-  // 可被终止（reject）的promise
-  const abort_promise = new Promise((resolve, reject) => {
-    Abort = (msg = 'canceled.') => {
-      reject(msg);
-    };
-  });
-  // 调用超时
-  if (timeout && typeof abort === 'function') {
-    setTimeout(() => {
-      Abort(`timeout：${timeout}ms`);
-    }, timeout);
-  }
-  // 业务API的promise
-  const fetch_promise = new Promise((resolve, reject) => {
-    if (!url.startsWith('http')) {
-      url = `${defaultURL}${url}`;
+export const _fetch = (
+  (fetch) =>
+  (url, { timeout = defaultTimeout, ...rest }) => {
+    console.log(url, { timeout, ...rest });
+    // 定义终止函数
+    let Abort = null;
+    // 可被终止（reject）的promise
+    const abort_promise = new Promise((resolve, reject) => {
+      Abort = (msg = 'canceled.') => {
+        reject(msg);
+      };
+    });
+    // 调用超时
+    if (timeout && typeof abort === 'function') {
+      setTimeout(() => {
+        Abort(`timeout：${timeout}ms`);
+      }, timeout);
     }
-    fetch(url, rest)
-      .then(response => checkStatus(reject, response))
-      .then(data => {
-        resolve(data);
-      })
-      .catch(error => {
-        console.log('request fail url:', url);
-        console.log('request fail reason:', error);
-        reject(error);
-      });
-  });
-  // race：返回最快的结果（resolve/reject）
-  const promise = Promise.race([fetch_promise, abort_promise]);
-  // console.log(promise)
-  // 将终止函数作为结果返回，达到可取手动取消请求的目的
-  promise.cancel = Abort;
-  return promise;
-})(fetch);
+    // 业务API的promise
+    const fetch_promise = new Promise((resolve, reject) => {
+      if (!url.startsWith('http')) {
+        url = `${defaultURL}${url}`;
+      }
+      fetch(url, rest)
+        .then((response) => checkStatus(reject, response))
+        .then((data) => {
+          resolve(data);
+        })
+        .catch((error) => {
+          console.log('request fail url:', url);
+          console.log('request fail reason:', error);
+          reject(error);
+        });
+    });
+    // race：返回最快的结果（resolve/reject）
+    const promise = Promise.race([fetch_promise, abort_promise]);
+    // console.log(promise)
+    // 将终止函数作为结果返回，达到可取手动取消请求的目的
+    promise.cancel = Abort;
+    return promise;
+  }
+)(fetch);
 
 export const generateConfig = (method, params, config) => {
   const finalConfig = { ...defaultConfig };
@@ -108,7 +111,7 @@ export const generateConfig = (method, params, config) => {
         uri: path,
         type: 'multipart/form-data',
         name: escape(arr[arr.length - 1]),
-        fileType: i.mime,
+        fileType: i.mime
       };
       formData.append('file', file);
     }
